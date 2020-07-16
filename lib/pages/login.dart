@@ -95,16 +95,21 @@ class SignInPageState extends State<LoginPage > {
                  
                   SizedBox(height: 10,),
                   Row(children: <Widget>[ 
-                    Container(
-                      height: 50,
-                      width: 150,
-                        margin: const EdgeInsets.only( right: 30.0,left: 20.0), 
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Color(0xff2a2798),
-                      ),
-                      child: Center(
-                        child: Text("INGRESAR", style: TextStyle(color: Colors.white),),
+                    GestureDetector(
+                      onTap: () {
+                      Navigator.pushNamed(context, HomeViewRoute);
+                       },
+                        child: Container(
+                        height: 50,
+                        width: 150,
+                          margin: const EdgeInsets.only( right: 30.0,left: 20.0), 
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Color(0xff2a2798),
+                        ),
+                        child: Center(
+                          child: Text("INGRESAR", style: TextStyle(color: Colors.white),),
+                        ),
                       ),
                     ),
                     

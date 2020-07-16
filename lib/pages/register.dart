@@ -1,29 +1,28 @@
-
-
 import 'package:covid/pages/components/textfield_widget.dart';
+import 'package:covid/pages/home-falso.dart';
+import 'package:covid/pages/protegete-al-salir.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../routing_constants.dart';
 import 'components/custom_form_field.dart';
 
-
-class RegisterPage  extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => RegisterPageState();
 }
 
-class RegisterPageState extends State<RegisterPage > {
+class RegisterPageState extends State<RegisterPage> {
   TextEditingController namesController = new TextEditingController();
   TextEditingController lastNameController = new TextEditingController();
   TextEditingController motherLastNameController = new TextEditingController();
   TextEditingController mobileController = new TextEditingController();
   TextEditingController dvController = new TextEditingController();
   TextEditingController dniController = new TextEditingController();
- @override
+  @override
   Widget build(BuildContext context) {
-
-     return Scaffold(
-      body: SafeArea(
+    return Scaffold(
+        body: SafeArea(
       child: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -35,96 +34,107 @@ class RegisterPageState extends State<RegisterPage > {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                
-                  
-                     SingleChildScrollView(
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                              child: Image.asset('assets/images/banner.png',width: 90.0,height: 90.0,),
+                  SingleChildScrollView(
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                            child: Image.asset(
+                              'assets/images/banner.png',
+                              width: 90.0,
+                              height: 90.0,
                             ),
-                            Container(
-                              padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                              child: Text('REGÍSTRATE:'),
-                            ),
-                            CustomFormField(
-                              width: 225,
-                              hintText: 'Nombres',
-                              inputType: TextInputType.text,
-                              inputAction: TextInputAction.next,
-                              errorMsg: 'Ingresar nombres.',
-                              controller: namesController,
-                              focus: true,
-                            ),
-                            CustomFormField(
-                              width: 225,
-                              hintText: 'Apellido paterno',
-                              inputType: TextInputType.text,
-                              inputAction: TextInputAction.next,
-                              errorMsg: 'Ingresar apellido paterno.',
-                              controller: lastNameController,
-                              focus: false,
-                            ),
-                            CustomFormField(
-                              width: 225,
-                              hintText: 'Apellido materno',
-                              inputType: TextInputType.text,
-                              inputAction: TextInputAction.next,
-                              errorMsg: 'Ingresar apellido materno.',
-                              controller: motherLastNameController,
-                              focus: false,
-                            ),
-                            CustomFormField(
-                              width: 225,
-                              hintText: 'Correo electrónico',
-                              inputType: TextInputType.phone,
-                              inputAction: TextInputAction.next,
-                              errorMsg: 'Ingresar celular.',
-                              controller: mobileController,
-                              focus: false,
-                            ),
-                            CustomFormField(
-                              width: 225,
-                              hintText: 'Contraseña',
-                              inputType: TextInputType.phone,
-                              inputAction: TextInputAction.next,
-                              errorMsg: 'Ingresar celular.',
-                              controller: mobileController,
-                              focus: false,
-                            ),
-                            CustomFormField(
-                              width: 225,
-                              hintText: 'Confirmar contraseña',
-                              inputType: TextInputType.phone,
-                              inputAction: TextInputAction.next,
-                              errorMsg: 'Ingresar celular.',
-                              controller: mobileController,
-                              focus: false,
-                            ),
-                           
-                            
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                            child: Text('REGÍSTRATE:'),
+                          ),
+                          CustomFormField(
+                            width: 225,
+                            hintText: 'Nombres',
+                            inputType: TextInputType.text,
+                            inputAction: TextInputAction.next,
+                            errorMsg: 'Ingresar nombres.',
+                            controller: namesController,
+                            focus: true,
+                          ),
+                          CustomFormField(
+                            width: 225,
+                            hintText: 'Apellido paterno',
+                            inputType: TextInputType.text,
+                            inputAction: TextInputAction.next,
+                            errorMsg: 'Ingresar apellido paterno.',
+                            controller: lastNameController,
+                            focus: false,
+                          ),
+                          CustomFormField(
+                            width: 225,
+                            hintText: 'Apellido materno',
+                            inputType: TextInputType.text,
+                            inputAction: TextInputAction.next,
+                            errorMsg: 'Ingresar apellido materno.',
+                            controller: motherLastNameController,
+                            focus: false,
+                          ),
+                          CustomFormField(
+                            width: 225,
+                            hintText: 'Correo electrónico',
+                            inputType: TextInputType.phone,
+                            inputAction: TextInputAction.next,
+                            errorMsg: 'Ingresar celular.',
+                            controller: mobileController,
+                            focus: false,
+                          ),
+                          CustomFormField(
+                            width: 225,
+                            hintText: 'Contraseña',
+                            inputType: TextInputType.phone,
+                            inputAction: TextInputAction.next,
+                            errorMsg: 'Ingresar celular.',
+                            controller: mobileController,
+                            focus: false,
+                          ),
+                          CustomFormField(
+                            width: 225,
+                            hintText: 'Confirmar contraseña',
+                            inputType: TextInputType.phone,
+                            inputAction: TextInputAction.next,
+                            errorMsg: 'Ingresar celular.',
+                            controller: mobileController,
+                            focus: false,
+                          ),
+
                           // ),
                           Container(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 16.0, horizontal: 16.0),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 16.0, horizontal: 16.0),
+                          ),
+
+                          GestureDetector(
+                              onTap: () {},
                               child: MaterialButton(
-                                  onPressed: (){},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              HomeFalsoPage()),
+                                    );
+                                  },
                                   color: Theme.of(context).colorScheme.primary,
-                                  disabledColor: Theme.of(context).disabledColor,
+                                  disabledColor:
+                                      Theme.of(context).disabledColor,
                                   child: Text(
                                     'Crear cuenta',
-                                    style: TextStyle(color:Colors.white),
+                                    style: TextStyle(color: Colors.white),
                                   ))),
-                         
                         ]),
-                        
                   ),
-                  ],
+                ],
               ),
             ),
-           /*  BlocListener<SignupBloc, SignupState>(
+            /*  BlocListener<SignupBloc, SignupState>(
               listener: (context, state){
                 if(state is ResponseDoSignup){
                   Map obj = { 
@@ -146,13 +156,6 @@ class RegisterPageState extends State<RegisterPage > {
           ],
         ),
       ),
-    )
-    );
+    ));
   }
-
-  
 }
-
-
-
-

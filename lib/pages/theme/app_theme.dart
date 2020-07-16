@@ -22,7 +22,8 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: _lightBackgroundColor,
     primaryColor: _lightPrimaryColor,
-    disabledColor: _lightDisabledColor, //needs to be used explicitly in MaterialButton
+    disabledColor:
+        _lightDisabledColor, //needs to be used explicitly in MaterialButton
     fontFamily: 'Muli',
     colorScheme: ColorScheme.light(
         primary: _lightPrimaryColor,
@@ -46,7 +47,7 @@ class AppTheme {
   static final TextTheme _lightTextTheme = TextTheme(
     button: _lightButtonStyle,
     title: _lightTitleStyle,
-  //  bigText: _lightBigTextStyle,
+    //  bigText: _lightBigTextStyle,
     subhead: _lightSubheadStyle,
     subtitle: _lightSubtitleStyle,
     bodyText2: _lightbodyText2Style,

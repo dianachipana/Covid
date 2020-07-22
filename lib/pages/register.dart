@@ -1,10 +1,6 @@
-import 'package:covid/pages/components/textfield_widget.dart';
-import 'package:covid/pages/home-falso.dart';
-import 'package:covid/pages/protegete-al-salir.dart';
+import 'package:covid/pages/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../routing_constants.dart';
 import 'components/custom_form_field.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -118,8 +114,7 @@ class RegisterPageState extends State<RegisterPage> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              HomeFalsoPage()),
+                                          builder: (context) => HomePage()),
                                     );
                                   },
                                   color: Theme.of(context).colorScheme.primary,

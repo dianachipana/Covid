@@ -1,7 +1,10 @@
-import 'package:covid/pages/home-falso.dart';
+import 'package:covid/pages/components/videos.dart';
+import 'package:covid/pages/home.dart';
 import 'package:covid/pages/login.dart';
 import 'package:covid/pages/protegete-al-salir-view.dart';
 import 'package:covid/pages/protegete-al-salir.dart';
+import 'package:covid/pages/protegete-en-casa-view.dart';
+import 'package:covid/pages/protegete-en-casa.dart';
 import 'package:covid/pages/register.dart';
 import 'package:covid/pages/sintomas-view.dart';
 import 'package:covid/pages/sintomas.dart';
@@ -31,10 +34,17 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case SintomasVistaViewRoute:
       return MaterialPageRoute(builder: (context) => SintomasVista());
 
-    //home falso, reemplazar por el home hecho por fiorella, gracias :v
-    case HomeFalsoViewRoute:
-      return MaterialPageRoute(builder: (context) => HomeFalsoPage());
+    case ProtegeteEnCasaViewRoute:
+      return MaterialPageRoute(builder: (context) => ProtegeteEnCasaPage());
 
+    case ProtegeteEnCasaVistaViewRoute:
+      return MaterialPageRoute(builder: (context) => ProtegeteEnCasaVista());
+
+    case VideosViewRoute:
+      return MaterialPageRoute(builder: (context) => VideosPage());
+
+    case HomeViewRoute:
+      return MaterialPageRoute(builder: (context) => HomePage());
     default:
       return MaterialPageRoute(builder: (context) => UndefinedView());
   }

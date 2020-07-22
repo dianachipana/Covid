@@ -321,10 +321,4 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
       ),
     );
   }
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }
 }

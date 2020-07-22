@@ -1,13 +1,13 @@
-import 'package:covid/pages/sintomas-view.dart';
+import 'package:covid/pages/protegete-en-casa-view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SintomasPage extends StatefulWidget {
+class ProtegeteEnCasaPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => SintomasPageState();
+  State<StatefulWidget> createState() => ProtegeteEnCasaPageState();
 }
 
-class SintomasPageState extends State<SintomasPage> {
+class ProtegeteEnCasaPageState extends State<ProtegeteEnCasaPage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -28,7 +28,7 @@ class SintomasPageState extends State<SintomasPage> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/sintomas-portada.png'),
+                                'assets/images/cuidados-en-casa-portada.png'),
                             fit: BoxFit.fill)),
                   ),
                 ],
@@ -55,7 +55,7 @@ class SintomasPageState extends State<SintomasPage> {
             ),
             Center(
                 child: Text(
-              "En esta sección te mostraremos algunos síntomas a prestar atención.",
+              "En esta sección te indicaremos algunas medidas que puedes tomar en tu hogar para protegerte del virus.",
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Color(0xff2a2798),
@@ -75,7 +75,7 @@ class SintomasPageState extends State<SintomasPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SintomasVista()),
+                              builder: (context) => ProtegeteEnCasaVista()),
                         );
                       },
                       color: Colors.indigo[900],
@@ -83,7 +83,7 @@ class SintomasPageState extends State<SintomasPage> {
                       shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0)),
                       child: Text(
-                        'Ver ',
+                        'Ver cómo',
                         style: TextStyle(color: Colors.white),
                       ))),
             )
@@ -93,9 +93,9 @@ class SintomasPageState extends State<SintomasPage> {
     );
   }
 
-  /*@override
+  @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     throw UnimplementedError();
-  }*/
+  }
 }

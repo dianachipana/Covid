@@ -4,6 +4,7 @@ const String ProtegeteAlSalirViewRoute = 'protegete-al-salir';
 const String ProtegeteAlSalirVistaViewRoute = 'protegete-al-salir-vista';
 const String SintomasViewRoute = 'sintomas';
 const String SintomasVistaViewRoute = 'sintomas-vista';
-
-//vista home falsa creada para poder digirme a mis paginas: Nikoll
-const String HomeFalsoViewRoute = 'home-falso';
+const String HomeViewRoute = 'home';
+const String ProtegeteEnCasaViewRoute = 'protegete-en-casa';
+const String ProtegeteEnCasaVistaViewRoute = 'protegete-en-casa-vista';
+const String VideosViewRoute = 'videos';

@@ -63,9 +63,9 @@ class HomePageState extends State<HomePage> {
 
   _autoevaluacion() {
     return GestureDetector(
-      /* onTap: () {
-        Navigator.pushNamed(context, OtherOperationsViewRoute);
-      }, */
+      onTap: () {
+        Navigator.pushNamed(context, AutoevaluacionViewRoute);
+      },
       child: Container(
         height: 100.0,
         width: 300.0,
@@ -240,9 +240,9 @@ class HomePageState extends State<HomePage> {
 
   _preguntas() {
     return GestureDetector(
-      /* onTap: () {
-        Navigator.pushNamed(context, OtherOperationsViewRoute);
-      }, */
+      onTap: () {
+        Navigator.pushNamed(context, PreguntasFrecuentesViewRoute);
+      },
       child: Container(
         height: 90.0,
         width: 300.0,

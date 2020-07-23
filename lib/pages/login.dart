@@ -143,7 +143,7 @@ class SignInPageState extends State<LoginPage> {
                       ),
                       GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, RegisterViewRoute);
+                            Navigator.pushNamed(context, LoadingViewRoute);
                           },
                           child: Text(
                             "REGÍSTRATE",

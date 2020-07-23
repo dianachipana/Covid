@@ -1,6 +1,11 @@
+import 'package:covid/pages/autoevaluacion-view.dart';
+import 'package:covid/pages/autoevaluacion.dart';
 import 'package:covid/pages/components/videos.dart';
 import 'package:covid/pages/home.dart';
+import 'package:covid/pages/loading.dart';
 import 'package:covid/pages/login.dart';
+import 'package:covid/pages/preguntas-frecuentes-view.dart';
+import 'package:covid/pages/preguntas-frecuentes.dart';
 import 'package:covid/pages/protegete-al-salir-view.dart';
 import 'package:covid/pages/protegete-al-salir.dart';
 import 'package:covid/pages/protegete-en-casa-view.dart';
@@ -45,6 +50,23 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case HomeViewRoute:
       return MaterialPageRoute(builder: (context) => HomePage());
+
+    case PreguntasFrecuentesViewRoute:
+      return MaterialPageRoute(builder: (context) => PreguntasFrecuentesPage());
+
+    case PreguntasFrecuentesVistaViewRoute:
+      return MaterialPageRoute(
+          builder: (context) => PreguntasFrecuentesVista());
+
+    case LoadingViewRoute:
+      return MaterialPageRoute(builder: (context) => LoadingPage());
+
+    case AutoevaluacionViewRoute:
+      return MaterialPageRoute(builder: (context) => AutoevaluacionPage());
+
+    case AutoevaluacionVistaViewRoute:
+      return MaterialPageRoute(builder: (context) => AutoevalacionVista());
+
     default:
       return MaterialPageRoute(builder: (context) => UndefinedView());
   }

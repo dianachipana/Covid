@@ -186,7 +186,7 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
                 title: Text(video.title ),
                 subtitle: Text(video.description ),
                 onTap: () {
-                  _alert(context,video.video);
+                  _alert(context,video.video,video.title);
                 },
               ),
             ),
@@ -197,10 +197,8 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
      
     );
   }
-  Future<void> _alert(BuildContext context, String video) {
-    _controller = VideoPlayerController.network(
-      video
-    );
+  Future<void> _alert(BuildContext context, String video,String title) {
+    _controller = VideoPlayerController.network(video);
      _initializeVideoPlayerFuture = _controller.initialize();
     return showDialog<void>(
       context: context,
@@ -210,6 +208,7 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
             borderRadius: BorderRadius.all(Radius.circular(5.0))
           ),
           contentPadding: EdgeInsets.only(top: 10.0),
+          title: Text(title),
           content: Container(
              padding: EdgeInsets.fromLTRB(20, 10, 20, 5),
             width: 280.0,
@@ -223,8 +222,16 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     return Column(
-                        children: [ RaisedButton(
-                          color:  Colors.transparent,
+                        children: [ 
+                          Container(
+                              child:
+                              AspectRatio(
+                                aspectRatio: _controller.value.aspectRatio,
+                                child: VideoPlayer(_controller),
+                              )
+                          ),
+                          RaisedButton(
+                          color:  Color(0xff2a2798),
                           textColor: Colors.white,
                           onPressed: () {
                             setState(() {
@@ -240,13 +247,6 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
                           ),
 
                         ),
-                          Container(
-                              child:
-                              AspectRatio(
-                                aspectRatio: _controller.value.aspectRatio,
-                                child: VideoPlayer(_controller),
-                              )
-                          )
                         ]
                     );
                   } else {

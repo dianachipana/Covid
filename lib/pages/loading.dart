@@ -1,12 +1,23 @@
+import 'package:covid/routing_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoadingPage extends StatefulWidget {
+  /* final String username;
+  final String password; */
+ /*  const LoadingPage({Key key, this.username, this.password}) : super(key: key); */
   @override
   State<StatefulWidget> createState() => LoadingPageState();
 }
-
+  
 class LoadingPageState extends State<LoadingPage> {
+
+   @override
+    void initState() { 
+      super.initState();
+    
+     
+    }
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -28,14 +39,7 @@ class LoadingPageState extends State<LoadingPage> {
                 fontWeight: FontWeight.w800,
               ),
             ),
-            Text(
-              'Nombre!',
-              style: TextStyle(
-                color: Colors.indigo[900],
-                fontSize: 22,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
+            text(),
             Container(
               margin: const EdgeInsets.fromLTRB(0, 50, 0, 0),
               height: 350,
@@ -56,18 +60,17 @@ class LoadingPageState extends State<LoadingPage> {
               'cargando...',
               style: TextStyle(color: Colors.indigo[900], fontSize: 16),
             ),
-            /*LinearProgressIndicator(
-            valueColor: AlwaysStoppedAnimation
-          )*/
+              
           ],
         ),
       ),
     );
   }
-
-  /*@override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }*/
+  text({String username}){
+    return Text('DIANA',style: TextStyle(
+                color: Colors.indigo[900],
+                fontSize: 22,
+                fontWeight: FontWeight.w800,
+              ),);
+  }
 }

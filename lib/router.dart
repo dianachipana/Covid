@@ -28,6 +28,7 @@ import 'package:flutter/material.dart';
 import 'pages/undefined.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
+  Map obj;
   switch (settings.name) {
     case LoginViewRoute:
       return MaterialPageRoute(builder: (context) => LoginPage());

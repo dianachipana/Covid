@@ -1,169 +1,277 @@
+import 'package:covid/blocs/prelogin/prelogin_bloc.dart';
+import 'package:covid/logics/authentication_logic.dart';
 import 'package:covid/pages/components/textfield_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../routing_constants.dart';
+import '../routing_constants.dart';
+import 'components/custom_form_field.dart';
+import 'components/custom_input_buscar.dart';
 // Copyright 2019 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+enum Answers { OK }
+class LoginPage extends StatelessWidget  {
 
-class LoginPage extends StatefulWidget {
-  final String title = 'Registration';
-  @override
-  State<StatefulWidget> createState() => SignInPageState();
+   @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_)=>PreloginBloc(authenticationLogic: AuthenticationSimple()),
+      child: PreloginViewFS()
+    );
+  }
 }
 
-class SignInPageState extends State<LoginPage> {
+class PreloginViewFS extends StatefulWidget {
+  @override
+  _PreloginViewState createState() => _PreloginViewState();
+}
+
+class _PreloginViewState extends State<PreloginViewFS> {
+  TextEditingController usuarioController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              height: 300,
-              child: Stack(
-                children: <Widget>[
-                  Container(
-                    height: 330,
-                    width: width,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/banner.png'),
-                            fit: BoxFit.fill)),
-                  ),
-                ],
-              ),
-            ),
-            Center(
-                child: Text(
-              "Ingresa con tus redes sociales",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Color(0xff2a2798),
-                  fontWeight: FontWeight.w400,
-                  fontSize: 18),
-            )),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Row(
+          child: Stack(
+             children: <Widget>[
+             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  height: 300,
+                  child: Stack(
                     children: <Widget>[
-                      _btnFacebook(),
-                      SizedBox(
-                        width: 12,
+                      Container(
+                        height: 330,
+                        width: width,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/banner.png'),
+                                fit: BoxFit.fill)),
                       ),
-                      _btnInstagram(),
-                      SizedBox(
-                        width: 12,
-                      ),
-                      _btnGoogle()
                     ],
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Column(
+                ),
+                Center(
+                    child: Text(
+                  "Ingresa con tus redes sociales",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color(0xff2a2798),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 18),
+                )),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Center(
-                          child: Text(
-                        "----- ó -----",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xff2a2798),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18),
-                      )),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          _btnFacebook(),
+                          SizedBox(
+                            width: 12,
+                          ),
+                          _btnInstagram(),
+                          SizedBox(
+                            width: 12,
+                          ),
+                          _btnGoogle()
+                        ],
+                      ),
                       SizedBox(
                         height: 20,
                       ),
-                      TextFieldWidget(
-                        hintText: 'Correo',
-                        obscureText: true,
-                        prefixIconData: Icons.mail_outline,
-                        suffixIconData: Icons.check,
-                        onChanged: (value) {},
+                      Column(
+                        children: <Widget>[
+                          Center(
+                              child: Text(
+                            "----- ó -----",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Color(0xff2a2798),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 18),
+                          )),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          CustomFormField(
+                            width: 225,
+                            hintText: 'Usuario',
+                            inputType: TextInputType.text,
+                            inputAction: TextInputAction.next,
+                            controller: usuarioController,
+                            focus: true,
+                           ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          CustomInputFielPassword(
+                                   isHardcorePassword: false,
+                                   isConfirmPassword: false,
+                                   minLength         : 8,
+                                   maxLength         : 100,
+                                   borderColor       : Colors.transparent,
+                                   width             : 225.0,
+                                   heightFont        : 1.2,
+                                   hintText          : 'Contraseña',
+                                   inputType         : TextInputType.text,
+                                   errorMsgRequired  : '',
+                                   errorMsgMaxLength : '♥ máximo 100 digitos',
+                                   errorMsgMinLength : '♥ minimo 8 digitos',
+                                   controller        : passwordController,
+                                   /* currentNode       : _passwordNode, */
+                                    nextNode          : null,
+                                   isLastInput       : true,
+                                   focus             : false,
+                                ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Olvidaste tu contraseña?",
+                            textAlign: TextAlign.right,
+                            style: TextStyle(color: Color(0xff2a2798)),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        height: 15,
-                      ),
-                      TextFieldWidget(
-                        hintText: 'Contraseña',
-                        obscureText: false,
-                        prefixIconData: Icons.lock_outline,
-                        suffixIconData: Icons.visibility_off,
+                        height: 20,
                       ),
                       SizedBox(
                         height: 10,
                       ),
-                      Text(
-                        "Olvidaste tu contraseña?",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(color: Color(0xff2a2798)),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, HomeViewRoute);
-                        },
-                        child: Container(
-                          height: 50,
-                          width: 150,
-                          margin:
-                              const EdgeInsets.only(right: 30.0, left: 20.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: Color(0xff2a2798),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "INGRESAR",
-                              style: TextStyle(color: Colors.white),
+                      Row(
+                        children: <Widget>[
+                          GestureDetector(
+                            onTap: () {
+                                   /*  final form = _formKey.currentState; */
+                            if (usuarioController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+                             BlocProvider.of<PreloginBloc>(context).add(DoPreloginEvent(username: usuarioController.text, password: passwordController.text));
+                             }else{
+                            _alert(context);
+
+                          }    
+                             /*  Navigator.pushNamed(context, HomeViewRoute); */
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 150,
+                              margin:
+                                  const EdgeInsets.only(right: 30.0, left: 20.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Color(0xff2a2798),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "INGRESAR",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, RegisterViewRoute);
+                              },
+                              child: Text(
+                                "REGÍSTRATE",
+                                textAlign: TextAlign.right,
+                                style: TextStyle(color: Color(0xff2a2798)),
+                              )),
+                        ],
                       ),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, LoadingViewRoute);
-                          },
-                          child: Text(
-                            "REGÍSTRATE",
-                            textAlign: TextAlign.right,
-                            style: TextStyle(color: Color(0xff2a2798)),
-                          )),
+                      SizedBox(
+                        height: 30,
+                      ),
                     ],
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                ],
+                )
+              ],
               ),
-            )
-          ],
+                BlocListener<PreloginBloc, PreloginState>(
+                  listener: (context, state){
+                    if(state is ResponseDoPrelogin){
+                      Map obj = {
+                        'username': usuarioController.text,
+                        'password': passwordController.text,
+                      };
+                      Navigator.pushNamed(
+                        context,
+                        HomeViewRoute,
+                        arguments: obj,
+                      );
+                    }else if(state is ErrorPrelogin){
+                      _dialogInfo(context);
+                    }
+                  },
+                  child: BlocBuilder<PreloginBloc, PreloginState>(
+                    builder: (context, state){
+                        return Container();
+                   }
+                  ),
+                )
+             ]
         ),
+      
       ),
     );
   }
-
+Future<void> _alert(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+         shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(5.0))
+          ),
+        title: Text('Error'),
+        content: const Text('Debe completar todos los campos'),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+Future<void> _dialogInfo(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+         shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4.0))
+          ),
+        title: Text('Error'),
+        content: const Text('El usuario no existe'),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
   Widget _btnFacebook() {
     return GestureDetector(
       onTap: () {

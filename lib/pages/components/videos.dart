@@ -1,19 +1,45 @@
+import 'package:covid/blocs/transaction/transaction_bloc.dart';
+import 'package:covid/logics/transaction_logic.dart';
+import 'package:covid/models/transaction.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:video_player/video_player.dart';
 
-class VideosPage extends StatefulWidget {
+import '../../models/transaction.dart';
+
+class VideosPage extends StatelessWidget {
   @override
-  State<StatefulWidget> createState() => VideosPageState();
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<TransactionBloc>(
+          create: (_) => TransactionBloc(transactionLogic: TransactionSimple()),
+        ),
+      ],
+      child: TransactionListViewSF(),
+    );
+  }
 }
 
-class VideosPageState extends State<VideosPage> {
+/* @override
+  State<StatefulWidget> createState() => VideosPageState(); */
+class TransactionListViewSF extends StatefulWidget {
+  @override
+  _TransactionListViewState createState() => _TransactionListViewState();
+}
+
+class _TransactionListViewState extends State<TransactionListViewSF> {
+  List<Transaction> videos = [];
+  VideoPlayerController _controller;
+  Future<void> _initializeVideoPlayerFuture;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-
+    
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
+      body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -52,11 +78,7 @@ class VideosPageState extends State<VideosPage> {
                     width: 110,
                     child: MaterialButton(
                         onPressed: () {
-                          /*Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SintomasVista()),
-                      );*/
+                        
                         },
                         color: Colors.indigo[400],
                         disabledColor: Theme.of(context).disabledColor,
@@ -72,11 +94,7 @@ class VideosPageState extends State<VideosPage> {
                     width: 110,
                     child: MaterialButton(
                         onPressed: () {
-                          /*Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SintomasVista()),
-                      );*/
+                      
                         },
                         color: Colors.red[400],
                         disabledColor: Theme.of(context).disabledColor,
@@ -92,11 +110,7 @@ class VideosPageState extends State<VideosPage> {
                     width: 110,
                     child: MaterialButton(
                         onPressed: () {
-                          /*Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SintomasVista()),
-                      );*/
+
                         },
                         color: Colors.amber[900],
                         disabledColor: Theme.of(context).disabledColor,
@@ -109,50 +123,147 @@ class VideosPageState extends State<VideosPage> {
               ],
             ),
             //container de videos
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  //imagen del video
-                  Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image:
-                                AssetImage('assets/images/videos-portada.png'),
-                            fit: BoxFit.fill)),
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Text('Cuidados en casa',
-                          style: TextStyle(color: Colors.black)),
-                      Text('Subtítulo del video',
-                          style: TextStyle(color: Colors.black))
-                    ],
-                  ),
 
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image:
-                                AssetImage('assets/images/videos-portada.png'),
-                            fit: BoxFit.fill)),
-                  ),
-                ],
-              ),
-            ),
+            _crearLista(context),
           ],
+  
         ),
+       
       ),
     );
   }
 
+  Widget _crearLista(BuildContext context) {
+    BlocProvider.of<TransactionBloc>(context).add(DoGetTransactions()); 
+    return BlocListener<TransactionBloc, TransactionState>(
+      listener: (context, state) {
+      if (state is ResponseDoGetTransactions) {
+        videos = state.transactions;
+      }
+      if (state is ErrorTransaction) {
+      }
+    }, child: BlocBuilder<TransactionBloc, TransactionState>(
+        builder: (context, state) {
+      return Expanded(
+        child: ListView.builder(
+          itemCount: videos.length,
+          itemBuilder: (context, i) => _crearItem(videos[i]),
+        )
+      );
+    }));
+    
+
+  }
+
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
+  void dispose() {
+    // Asegúrate de despachar el VideoPlayerController para liberar los recursos
+    _controller.dispose();
+
+    super.dispose();
+  }
+
+  Widget _crearItem(Transaction video) {
+    
+    print(video.video);
+
+    return Dismissible(
+      key:  UniqueKey(),
+      background: Container(
+        color: Colors.red
+      ),
+      child: Card(
+        child: Column(
+          children: <Widget>[
+
+
+            GestureDetector(
+
+              child: ListTile(
+                leading: FadeInImage(
+                image: NetworkImage(video.imagen),
+                placeholder: AssetImage("assets/images/imagenofound.jpg")),
+                title: Text(video.title ),
+                subtitle: Text(video.description ),
+                onTap: () {
+                  _alert(context,video.video,video.title);
+                },
+              ),
+            ),
+            
+          ],
+        )
+      )
+     
+    );
+  }
+  Future<void> _alert(BuildContext context, String video,String title) {
+    _controller = VideoPlayerController.network(video);
+     _initializeVideoPlayerFuture = _controller.initialize();
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(5.0))
+          ),
+          contentPadding: EdgeInsets.only(top: 10.0),
+          title: Text(title),
+          content: Container(
+             padding: EdgeInsets.fromLTRB(20, 10, 20, 5),
+            width: 280.0,
+            height: 300.0,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Center(
+              child: FutureBuilder(
+                future: _initializeVideoPlayerFuture,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return Column(
+                        children: [ 
+                          Container(
+                              child:
+                              AspectRatio(
+                                aspectRatio: _controller.value.aspectRatio,
+                                child: VideoPlayer(_controller),
+                              )
+                          ),
+                          RaisedButton(
+                          color:  Color(0xff2a2798),
+                          textColor: Colors.white,
+                          onPressed: () {
+                            setState(() {
+                              if(_controller.value.isPlaying){
+                                _controller.pause();
+                              }else{
+                                _controller.play();
+                              }
+                            });
+                          },
+                          child: Icon(
+                              _controller.value.isPlaying ? Icons.pause : Icons.play_arrow
+                          ),
+
+                        ),
+                        ]
+                    );
+                  } else {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                },
+              )),
+                SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

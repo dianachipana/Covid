@@ -16,7 +16,7 @@ abstract class WService {
 
   Future loadHeaders() async {
     headers = {
-      'Content-type': 'application/json',
+      'Content-type': 'application/json; charset=utf-8',
       'Accept': 'application/json',
       /* HttpHeaders.authorizationHeader: "Bearer ", */
       // 'cookie': _obj

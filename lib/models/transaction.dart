@@ -18,7 +18,7 @@ class Transaction{
   String imagen;
   String video;
   String title;
-  String category;
+  int category;
   int id;
 
   Transaction({

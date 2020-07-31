@@ -1,4 +1,5 @@
 import 'package:covid/pages/autoevaluacion-view.dart';
+import 'package:covid/pages/encuesta-view-uno.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,6 @@ class AutoevaluacionPageState extends State<AutoevaluacionPage> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
               height: 150,
@@ -26,17 +26,22 @@ class AutoevaluacionPageState extends State<AutoevaluacionPage> {
               '¡Nos preocupamos por tu salud!',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 18,
+                fontSize: 20,
                 fontWeight: FontWeight.w800,
               ),
             ),
-            Text(
-              'Si deseas saber si te encuentras en riesgo, responde estas preguntas',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+            SizedBox(
+              height: 20,
             ),
             Container(
+                child: Text(
+              'Si deseas saber si te encuentras en riesgo, responde estas preguntas',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            )),
+            Container(
               margin: const EdgeInsets.fromLTRB(0, 70, 0, 0),
-              height: 350,
+              height: 330,
               child: Stack(
                 children: <Widget>[
                   Container(
@@ -59,7 +64,7 @@ class AutoevaluacionPageState extends State<AutoevaluacionPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AutoevalacionVista()),
+                              builder: (context) => EncuestaVistaUnoPage()),
                         );
                       },
                       color: Colors.purple[700],

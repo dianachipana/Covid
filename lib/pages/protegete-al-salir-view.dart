@@ -73,8 +73,10 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            SizedBox(
-                                width: 90,
+                            Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                width: 150,
                                 child: Text("Cúbrete al toser o estornudar",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -84,11 +86,13 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                             SizedBox(
                               height: 10,
                             ),
-                            SizedBox(
+                            Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                 width: 150,
                                 child: Text(
                                     "Utiliza la cara interna del codo para toser o estornudar o usa pañuelos deshechables.",
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.justify,
                                     style: TextStyle(
                                         color: Color(0xff2a2798),
                                         fontWeight: FontWeight.w400,
@@ -129,8 +133,9 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          SizedBox(
-                              width: 90,
+                          Container(
+                              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                              width: 150,
                               child: Text("Distancia",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -140,11 +145,12 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                           SizedBox(
                             height: 10,
                           ),
-                          SizedBox(
+                          Container(
+                              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               width: 150,
                               child: Text(
                                   "Evita el contacto con personas contagiadas o que presenten síntomas.",
-                                  textAlign: TextAlign.center,
+                                  textAlign: TextAlign.justify,
                                   style: TextStyle(
                                       color: Color(0xff2a2798),
                                       fontWeight: FontWeight.w400,
@@ -180,7 +186,7 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                               width: 150,
                               child: Text(
                                 "Mantén como mínimo 1 metro de distancia",
-                                textAlign: TextAlign.center,
+                                textAlign: TextAlign.justify,
                                 style: TextStyle(
                                     color: Color(0xff2a2798),
                                     fontWeight: FontWeight.w500,
@@ -209,7 +215,7 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                               width: 150,
                               child: Text(
                                 "Evita aglomeraciones de gente.",
-                                textAlign: TextAlign.center,
+                                textAlign: TextAlign.justify,
                                 style: TextStyle(
                                     color: Color(0xff2a2798),
                                     fontWeight: FontWeight.w500,
@@ -246,10 +252,12 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            SizedBox(
+                            Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                 width: 150,
                                 child: Text("De ser posible, quédate en casa",
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.justify,
                                     style: TextStyle(
                                         color: Color(0xff2a2798),
                                         fontWeight: FontWeight.w800,
@@ -257,11 +265,13 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                             SizedBox(
                               height: 10,
                             ),
-                            SizedBox(
+                            Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                 width: 150,
                                 child: Text(
                                     "Permanece en casa el mayor tiempo posible para evitar exponerte al virus.",
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.justify,
                                     style: TextStyle(
                                         color: Color(0xff2a2798),
                                         fontWeight: FontWeight.w400,
@@ -282,11 +292,13 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            SizedBox(
+                            Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                 width: 150,
                                 child: Text(
                                     "Busca lugares donde puedas lavarte las manos",
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.justify,
                                     style: TextStyle(
                                         color: Color(0xff2a2798),
                                         fontWeight: FontWeight.w800,
@@ -294,11 +306,13 @@ class ProtegeteAlSalirVistaState extends State<ProtegeteAlSalirVista> {
                             SizedBox(
                               height: 10,
                             ),
-                            SizedBox(
+                            Container(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 10),
                                 width: 150,
                                 child: Text(
                                     "Lava tus manos de forma frecuente con agua y jabón o soluciones alcohólicas. Recuerda que debe ser durante 20 segundos.",
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.justify,
                                     style: TextStyle(
                                         color: Color(0xff2a2798),
                                         fontWeight: FontWeight.w400,

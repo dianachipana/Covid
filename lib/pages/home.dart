@@ -34,27 +34,31 @@ class HomePageState extends State<HomePage> {
             Row(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 380, left: 20),
+                  padding: EdgeInsets.only(top: 360, left: 20),
                   child: _sintomas(),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 380, left: 20),
+                  padding: EdgeInsets.only(top: 360, left: 20),
                   child: _cuidados(),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 380, left: 20),
+                  padding: EdgeInsets.only(top: 360, left: 20),
                   child: _salir(),
                 ),
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: 490, left: 30),
+              padding: EdgeInsets.only(top: 460, left: 30),
               child: _autoevaluacion2(),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 590, left: 30),
+              padding: EdgeInsets.only(top: 560, left: 30),
               child: _preguntas(),
             ),
+            Padding(
+              padding: EdgeInsets.only(top: 660, left: 30),
+              child: _receta(),
+            )
           ],
         ),
       ),
@@ -70,16 +74,16 @@ class HomePageState extends State<HomePage> {
         height: 100.0,
         width: 300.0,
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Colors.blue[100],
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              'assets/images/mas.png',
-              height: 50.0,
-              width: 50.0,
+            Icon(
+              Icons.remove_red_eye,
               color: Colors.black,
+              size: 50.0,
             ),
             Container(
               width: 200,
@@ -88,19 +92,18 @@ class HomePageState extends State<HomePage> {
                   height: 10,
                 ),
                 Text('Autoevaluación COVID-19 ',
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 16)),
                 Text(
                     'Herramienta de autoevaluación para ayudar a determinar si debe hacerse la prueba de COVID-19. ',
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 14)),
               ]),
             ),
-            Image.asset(
-              'assets/images/siguiente.png',
-              height: 50.0,
-              width: 50.0,
+            Icon(
+              Icons.navigate_next,
               color: Colors.black,
+              size: 30.0,
             ),
           ],
         ),
@@ -114,6 +117,7 @@ class HomePageState extends State<HomePage> {
         Navigator.pushNamed(context, SintomasViewRoute);
       },
       child: Container(
+        padding: EdgeInsets.only(top: 10),
         height: 90.0,
         width: 90.0,
         decoration: BoxDecoration(
@@ -122,8 +126,11 @@ class HomePageState extends State<HomePage> {
         ),
         child: Column(
           children: <Widget>[
-            Image.asset('assets/images/sintomas.png',
-                height: 50.0, width: 50.0),
+            Icon(
+              Icons.hearing,
+              color: Colors.white,
+              size: 40.0,
+            ),
             Text(
               'Síntomas',
               style: TextStyle(color: Colors.white),
@@ -140,6 +147,7 @@ class HomePageState extends State<HomePage> {
         Navigator.pushNamed(context, ProtegeteEnCasaViewRoute);
       },
       child: Container(
+        padding: EdgeInsets.only(top: 10),
         height: 90.0,
         width: 90.0,
         decoration: BoxDecoration(
@@ -148,8 +156,11 @@ class HomePageState extends State<HomePage> {
         ),
         child: Column(
           children: <Widget>[
-            Image.asset('assets/images/cuidados.png',
-                height: 50.0, width: 50.0),
+            Icon(
+              Icons.home,
+              color: Colors.white,
+              size: 40.0,
+            ),
             Text(
               'Cuidados en',
               style: TextStyle(color: Colors.white),
@@ -170,6 +181,7 @@ class HomePageState extends State<HomePage> {
         Navigator.pushNamed(context, ProtegeteAlSalirViewRoute);
       },
       child: Container(
+        padding: EdgeInsets.only(top: 10),
         height: 90.0,
         width: 90.0,
         decoration: BoxDecoration(
@@ -178,7 +190,11 @@ class HomePageState extends State<HomePage> {
         ),
         child: Column(
           children: <Widget>[
-            Image.asset('assets/images/salir.png', height: 50.0, width: 50.0),
+            Icon(
+              Icons.person_pin_circle,
+              color: Colors.white,
+              size: 40.0,
+            ),
             Text(
               'Cuidados al',
               style: TextStyle(color: Colors.white),
@@ -202,18 +218,20 @@ class HomePageState extends State<HomePage> {
         height: 90.0,
         width: 300.0,
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Colors.blue[50],
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-                child: Image.asset(
-              'assets/images/camera.png',
-              height: 50.0,
-              width: 50.0,
-              color: Colors.black,
-            )),
+              padding: EdgeInsets.only(left: 5),
+              child: Icon(
+                Icons.videocam,
+                color: Colors.black,
+                size: 50.0,
+              ),
+            ),
             Container(
               width: 200,
               child: Column(children: <Widget>[
@@ -222,15 +240,14 @@ class HomePageState extends State<HomePage> {
                 ),
                 Text(
                     'En esta sección encontrarás más información sobre el COVID-19. ',
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 14)),
               ]),
             ),
-            Image.asset(
-              'assets/images/siguiente.png',
-              height: 50.0,
-              width: 50.0,
+            Icon(
+              Icons.navigate_next,
               color: Colors.black,
+              size: 30.0,
             ),
           ],
         ),
@@ -244,19 +261,20 @@ class HomePageState extends State<HomePage> {
         Navigator.pushNamed(context, PreguntasFrecuentesViewRoute);
       },
       child: Container(
+        padding: EdgeInsets.only(left: 5),
         height: 90.0,
         width: 300.0,
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Colors.blue[50],
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              'assets/images/cel.png',
-              height: 50.0,
-              width: 50.0,
+            Icon(
+              Icons.question_answer,
               color: Colors.black,
+              size: 50.0,
             ),
             Container(
               width: 200,
@@ -266,15 +284,58 @@ class HomePageState extends State<HomePage> {
                 ),
                 Text(
                     'Preguntas Frecuentes, en esta sección aclararemos tus dudas sobre el COVID-19 ',
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 14)),
               ]),
             ),
-            Image.asset(
-              'assets/images/siguiente.png',
-              height: 50.0,
-              width: 50.0,
+            Icon(
+              Icons.navigate_next,
               color: Colors.black,
+              size: 30.0,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _receta() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, RecetaViewRoute);
+      },
+      child: Container(
+        padding: EdgeInsets.only(left: 5),
+        height: 90.0,
+        width: 300.0,
+        decoration: BoxDecoration(
+          color: Colors.blue[50],
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              Icons.healing,
+              color: Colors.black,
+              size: 50.0,
+            ),
+            Container(
+              width: 200,
+              child: Column(children: <Widget>[
+                SizedBox(
+                  height: 12,
+                ),
+                Text(
+                    'Averigua qué medicamentos te podrían ayudar combatir el COVID-19.',
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(fontSize: 14)),
+              ]),
+            ),
+            Icon(
+              Icons.navigate_next,
+              color: Colors.black,
+              size: 30.0,
             ),
           ],
         ),

@@ -1,6 +1,11 @@
 import 'package:covid/pages/autoevaluacion-view.dart';
 import 'package:covid/pages/autoevaluacion.dart';
 import 'package:covid/pages/components/videos.dart';
+import 'package:covid/pages/encuesta-view-cinco.dart';
+import 'package:covid/pages/encuesta-view-cuatro.dart';
+import 'package:covid/pages/encuesta-view-dos.dart';
+import 'package:covid/pages/encuesta-view-tres.dart';
+import 'package:covid/pages/encuesta-view-uno.dart';
 import 'package:covid/pages/home.dart';
 import 'package:covid/pages/loading.dart';
 import 'package:covid/pages/login.dart';
@@ -10,7 +15,10 @@ import 'package:covid/pages/protegete-al-salir-view.dart';
 import 'package:covid/pages/protegete-al-salir.dart';
 import 'package:covid/pages/protegete-en-casa-view.dart';
 import 'package:covid/pages/protegete-en-casa.dart';
+import 'package:covid/pages/receta-view.dart';
 import 'package:covid/pages/register.dart';
+import 'package:covid/pages/resultados-negativo.dart';
+import 'package:covid/pages/resultados-positivo.dart';
 import 'package:covid/pages/sintomas-view.dart';
 import 'package:covid/pages/sintomas.dart';
 import 'package:covid/routing_constants.dart';
@@ -66,6 +74,30 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case AutoevaluacionVistaViewRoute:
       return MaterialPageRoute(builder: (context) => AutoevalacionVista());
+
+    case EncuestaVistaUnoViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaUnoPage());
+
+    case EncuestaVistaDosViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaDosPage());
+
+    case EncuestaVistaTresViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaTresPage());
+
+    case EncuestaVistaCuatroViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaCuatroPage());
+
+    case EncuestaVistaCincoViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaCincoPage());
+
+    case ResultadosNegativoViewRoute:
+      return MaterialPageRoute(builder: (context) => ResultadosNegativoPage());
+
+    case ResultadosPositivoViewRoute:
+      return MaterialPageRoute(builder: (context) => ResultadosPositivoPage());
+
+    case RecetaViewRoute:
+      return MaterialPageRoute(builder: (context) => RecetaPage());
 
     default:
       return MaterialPageRoute(builder: (context) => UndefinedView());

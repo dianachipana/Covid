@@ -32,21 +32,30 @@ class PreguntasFrecuentesVistaState extends State<PreguntasFrecuentesVista> {
                   margin: const EdgeInsets.fromLTRB(10, 5, 10, 10),
                   width: 350,
                   decoration: new BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                      color: Colors.blue[50]),
+                    color: Colors.blue[50],
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(2.0, 0.0),
+                        blurRadius: 5.0,
+                        spreadRadius: 0.0,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
                   child: Column(
                     children: <Widget>[
                       Text("Aqui va la pregunta",
-                          textAlign: TextAlign.start,
+                          textAlign: TextAlign.justify,
                           style: TextStyle(
-                              color: Color(0xff2a2798),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14)),
+                              color: Colors.black,
+                              fontWeight: FontWeight.w800,
+                              fontSize: 16)),
                       Text("Aqui va la respuesta",
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.justify,
                           style: TextStyle(
-                              color: Color(0xff2a2798),
-                              fontWeight: FontWeight.w400,
+                              color: Colors.black54,
+                              fontWeight: FontWeight.w600,
                               fontSize: 12))
                     ],
                   ),

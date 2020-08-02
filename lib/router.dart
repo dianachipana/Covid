@@ -1,5 +1,6 @@
 import 'package:covid/pages/autoevaluacion-view.dart';
 import 'package:covid/pages/autoevaluacion.dart';
+import 'package:covid/pages/components/video_player.dart';
 import 'package:covid/pages/components/videos.dart';
 import 'package:covid/pages/encuesta-view-cinco.dart';
 import 'package:covid/pages/encuesta-view-cuatro.dart';
@@ -56,6 +57,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case VideosViewRoute:
       return MaterialPageRoute(builder: (context) => VideosPage());
+    
+    case VideoPlayerViewRoute:
+      return MaterialPageRoute(builder: (context) => VideoPlayerPage());
 
     case HomeViewRoute:
       return MaterialPageRoute(builder: (context) => HomePage());

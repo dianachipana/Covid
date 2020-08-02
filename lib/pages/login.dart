@@ -1,11 +1,10 @@
 import 'package:covid/blocs/prelogin/prelogin_bloc.dart';
 import 'package:covid/logics/authentication_logic.dart';
-import 'package:covid/pages/components/textfield_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../routing_constants.dart';
 import '../routing_constants.dart';
 import 'components/custom_form_field.dart';
 import 'components/custom_input_buscar.dart';
@@ -17,6 +16,9 @@ class LoginPage extends StatelessWidget  {
 
    @override
   Widget build(BuildContext context) {
+     SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return BlocProvider(
       create: (_)=>PreloginBloc(authenticationLogic: AuthenticationSimple()),
       child: PreloginViewFS()
@@ -60,7 +62,7 @@ class _PreloginViewState extends State<PreloginViewFS> {
                 ),
                 Center(
                     child: Text(
-                  "Ingresa con tus redes sociales",
+                  "InformatePe COVID",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Color(0xff2a2798),
@@ -72,46 +74,23 @@ class _PreloginViewState extends State<PreloginViewFS> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          _btnFacebook(),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          _btnInstagram(),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          _btnGoogle()
-                        ],
-                      ),
+             
                       SizedBox(
                         height: 20,
                       ),
                       Column(
                         children: <Widget>[
-                          Center(
-                              child: Text(
-                            "----- ó -----",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color(0xff2a2798),
-                                fontWeight: FontWeight.w400,
-                                fontSize: 18),
-                          )),
+                
                           SizedBox(
                             height: 20,
                           ),
                           CustomFormField(
-                            width: 225,
+                            width: width*0.9,
                             hintText: 'Usuario',
                             inputType: TextInputType.text,
                             inputAction: TextInputAction.next,
                             controller: usuarioController,
-                            focus: true,
+                            focus             : false
                            ),
                           SizedBox(
                             height: 15,
@@ -122,7 +101,7 @@ class _PreloginViewState extends State<PreloginViewFS> {
                                    minLength         : 8,
                                    maxLength         : 100,
                                    borderColor       : Colors.transparent,
-                                   width             : 225.0,
+                                   width             : width*0.9,
                                    heightFont        : 1.2,
                                    hintText          : 'Contraseña',
                                    inputType         : TextInputType.text,

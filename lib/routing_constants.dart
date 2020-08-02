@@ -5,6 +5,8 @@ const String ProtegeteAlSalirVistaViewRoute = 'protegete-al-salir-vista';
 const String SintomasViewRoute = 'sintomas';
 const String SintomasVistaViewRoute = 'sintomas-vista';
 const String HomeViewRoute = 'home';
+const String VideoPlayerViewRoute = 'video_player';
+
 const String ProtegeteEnCasaViewRoute = 'protegete-en-casa';
 const String ProtegeteEnCasaVistaViewRoute = 'protegete-en-casa-vista';
 const String VideosViewRoute = 'videos';

@@ -59,7 +59,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => VideosPage());
     
     case VideoPlayerViewRoute:
-      return MaterialPageRoute(builder: (context) => VideoPlayerPage());
+      return MaterialPageRoute(builder: (context) => VideoPlayerPage(obj: settings.arguments));
 
     case HomeViewRoute:
       return MaterialPageRoute(builder: (context) => HomePage());

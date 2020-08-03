@@ -4,7 +4,6 @@ import 'package:covid/models/transaction.dart';
 import 'package:covid/pages/components/video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:video_player/video_player.dart';
 
@@ -14,9 +13,7 @@ import '../../routing_constants.dart';
 class VideosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-      SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-      ]);
+      
     return MultiBlocProvider(
       providers: [
         BlocProvider<TransactionBloc>(
@@ -170,20 +167,6 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
 
   }
 
-  @override
-  void dispose() {
-    // Asegúrate de despachar el VideoPlayerController para liberar los recursos
-    _controller.dispose();
-
-    super.dispose();
-  }
-
-  /*  @override
-  void deactivate() {
-    _controller.setVolume(0.0);
-    _controller.removeListener(listener);
-    super.deactivate();
-  } */
 
 
   Widget _crearItem(Transaction video) {
@@ -206,10 +189,14 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
                 title: Text(video.title ),
                 subtitle: Text(video.description ),
                 onTap: () {
+                  Map obj = {
+                    'video': video.video,
+                    'title': video.title,
+                  };
                    Navigator.pushNamed(
                        context,
                         VideoPlayerViewRoute,
-                        arguments: video,
+                        arguments: obj,
                     );
                   /* _alert(context,video.video,video.title); */
                 },

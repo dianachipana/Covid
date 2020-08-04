@@ -1,20 +1,22 @@
+import 'package:covid/pages/resultados-negativo.dart';
+import 'package:covid/pages/resultados-positivo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'encuesta-view-cinco.dart';
+import 'encuesta-view-ocho.dart';
 
-class EncuestaVistaCuatroPage extends StatefulWidget {
+class EncuestaVistaSietePage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => EncuestaViewCuatroPageState();
+  State<StatefulWidget> createState() => EncuestaViewSietePageState();
 }
 
-class EncuestaViewCuatroPageState extends State<EncuestaVistaCuatroPage> {
+class EncuestaViewSietePageState extends State<EncuestaVistaSietePage> {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return Scaffold(
+   return Scaffold(
         backgroundColor: Colors.deepPurpleAccent[400],
         body: SafeArea(
           child: SingleChildScrollView(
@@ -23,7 +25,7 @@ class EncuestaViewCuatroPageState extends State<EncuestaVistaCuatroPage> {
               child: Column(children: <Widget>[
                 Center(
                   child: Container(
-                    height: screenHeight * 0.30,
+                    height: screenHeight * 0.35,
                     width: screenWidth * 0.80,
                     decoration: new BoxDecoration(
                         color: Colors.white,
@@ -36,20 +38,23 @@ class EncuestaViewCuatroPageState extends State<EncuestaVistaCuatroPage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 4',
+                          Text('Pregunta 7',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(
-                            height: 15.0,
+                            height: 20.0,
                           ),
-                          Text('¿Ha perdido el olfato?',
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.black)),
+                          Padding(
+                            padding: EdgeInsets.only(right: 20,left: 20),
+                              child: Text('¿Ha tenido fiebre?',
+                                style:
+                                    TextStyle(fontSize: 18, color: Colors.black)),
+                          ),
                           Container(
                             height: 80,
                             width: 80,
                             /*  padding: EdgeInsets.only(right:30,left: 45), */
-                            child: Image.asset('assets/images/olfato.jpg'),
+                            child: Image.asset('assets/images/fiebre.jpg'),
                           ),
                           SizedBox(height: 10),
                         ],
@@ -68,7 +73,7 @@ class EncuestaViewCuatroPageState extends State<EncuestaVistaCuatroPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      EncuestaVistaCincoPage()),
+                                      EncuestaVistaOchoPage()),
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,
@@ -88,7 +93,7 @@ class EncuestaViewCuatroPageState extends State<EncuestaVistaCuatroPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      EncuestaVistaCincoPage()),
+                                      EncuestaVistaOchoPage()),
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,

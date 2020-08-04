@@ -5,8 +5,9 @@ abstract class TransactionEvent extends Equatable {
 }
 
 class DoGetTransactions extends TransactionEvent{
+  final int filter;
 
-  DoGetTransactions();
+  DoGetTransactions({this.filter});
   List<Object> get props => [];
 }
 

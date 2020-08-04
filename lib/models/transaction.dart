@@ -20,6 +20,7 @@ class Transaction{
   String title;
   int category;
   int id;
+  String categoryDes;
 
   Transaction({
     this.description,
@@ -38,7 +39,9 @@ class Transaction{
     title  = json['title'];
     category = json['category'];
     imagen  = json['imagen']; 
-} 
+  } 
+
+  String getCategory() => this.category == 1 ? 'Mitos' : (this.category == 2 ? 'Cuidados en casa' : 'Cuidados al salir');
 }
 
 

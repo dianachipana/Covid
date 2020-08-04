@@ -4,6 +4,7 @@ import 'package:covid/models/transaction.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../models/transaction.dart';
 import '../../routing_constants.dart';
@@ -35,23 +36,12 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
-    return Stack(children: <Widget>[
-      Container(
-        width: double.infinity,
-        color: Colors.white.withOpacity(1),
-      ),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 32.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            _cabecera(width),
-            _botones(width),
-            _lista(context, width),
-          ],
-        ),
-      )
-    ]);
+    return Scaffold(
+        body: Column(children: <Widget>[
+      _cabecera(width),
+      _botones(width),
+      _lista(context, width),
+    ]));
   }
 
   Widget _lista(BuildContext context, double width) {
@@ -78,71 +68,45 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
   }
 
   Widget _crearItem(Transaction video, double screenWidth) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.0),
-     
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-               /*  mainAxisAlignment: MainAxisAlignment.spaceBetween, */
-                children: <Widget>[
-                    Row(
-                    children: <Widget>[
-                      Container(
-                        width: 42.0,
-                        height: 42.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(21.0),
-                          color: video.category == 1
-                          ? swatch_1
-                          : (video.category == 2 ? swatch_2 : swatch_3),
-                        ),
-                        child: Center(
-                          child: Text(video.getCategory()[0],
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 8.0),
-                      Text(video.getCategory(),
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  
-        
-
-                  Text(
-                    video.title,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16.0,
-                    ),
-                  ),
-                  Text(
-                    video.description,
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      color: Color(0xff545c6b),
-                    ),
-                  )
-                ],
+    return Stack(
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.fromLTRB(40.0, 5, 20, 5),
+          height: 170,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color : Colors.white,
+            borderRadius:  BorderRadius.circular(20.0)
+          ),
+        )
+       /*  Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+             
+              Text(
+                video.title,
+                style: TextStyle(
+                  decoration: TextDecoration.none,
+                  color: Colors.black,
+                  fontSize: 18.0,
+                ),
               ),
-            ),
-            SizedBox(width: 16.0),
-            video.imagen != null
-                ? GestureDetector(
-                  onTap: () {
+              Text(
+                video.description,
+                style: TextStyle(
+                  decoration: TextDecoration.none,
+                  fontSize: 12.0,
+                  color: Color(0xff545c6b),
+                ),
+              )
+            ],
+          ),
+        ),
+        video.imagen != null
+            ? GestureDetector(
+                onTap: () {
                   Map obj = {
                     'video': video.video,
                     'title': video.title,
@@ -153,21 +117,22 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
                     arguments: obj,
                   );
                 },
-                  child: Container(
-                    width: screenWidth*0.2,
-                    height: 120,
-                    child: FadeInImage(
-                      placeholder: AssetImage("assets/images/imagenofound.jpg"),
-                      image: NetworkImage(video.imagen),
-                      fit: BoxFit.cover,
-                    ),
-                  ))
-                : SizedBox(width: 0.0)
-                
-          ],
-        ),
-      
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  width: screenWidth * 0.3,
+                  height: 120,
+                  child: FadeInImage(
+                    placeholder: AssetImage("assets/images/imagenofound.jpg"),
+                    image: NetworkImage(video.imagen),
+                    fit: BoxFit.cover,
+                  ),
+                ))
+            : SizedBox(width: 0.0) */
+      ],
     );
+
     /*    Dismissible(
         key: UniqueKey(),
         background: Container(color: Colors.red),
@@ -199,22 +164,41 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
   }
 
   _cabecera(width) {
-    return Row(children: <Widget>[
-      Container(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              height: 300,
-              width: width * 0.82,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/videos-portada.png'),
-                      fit: BoxFit.fill)),
-            ),
-          ],
+    return Stack(
+      children: <Widget>[
+        Container(
+            height: width,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30.0),
+                boxShadow: [
+                  BoxShadow(color: Colors.black26, offset: Offset(0.0, 2.0))
+                ]),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(30.0),
+              child: Image(
+                  image: AssetImage('assets/images/videos-portada.png'),
+                  fit: BoxFit.cover),
+            )),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  iconSize: 30,
+                  color: Colors.black,
+                  onPressed: () => Navigator.pop(context)),
+              IconButton(
+                  icon: Icon(Icons.search),
+                  iconSize: 30,
+                  color: Colors.black,
+                  onPressed: () => Navigator.pop(context))
+            ],
+          ),
         ),
-      ),
-    ]);
+      ],
+    );
   }
 
   _botones(double width) {

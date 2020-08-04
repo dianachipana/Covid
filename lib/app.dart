@@ -1,3 +1,4 @@
+import 'package:covid/pages/encuesta-view-uno.dart';
 import 'package:covid/pages/theme/app_theme.dart';
 import 'package:covid/routing_constants.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class App extends StatelessWidget {
             /* theme: AppTheme.lightTheme, */
             debugShowCheckedModeBanner: false,
             onGenerateRoute: router.generateRoute,
-             initialRoute: LoginViewRoute
+             initialRoute: EncuestaVistaUnoViewRoute,
            /*  initialRoute: initRoute, *///CreatePasswordViewRoute,
           ); 
   

@@ -4,7 +4,12 @@ import 'package:covid/pages/components/video_player.dart';
 import 'package:covid/pages/components/videos.dart';
 import 'package:covid/pages/encuesta-view-cinco.dart';
 import 'package:covid/pages/encuesta-view-cuatro.dart';
+import 'package:covid/pages/encuesta-view-dies.dart';
 import 'package:covid/pages/encuesta-view-dos.dart';
+import 'package:covid/pages/encuesta-view-nueve.dart';
+import 'package:covid/pages/encuesta-view-ocho.dart';
+import 'package:covid/pages/encuesta-view-seis.dart';
+import 'package:covid/pages/encuesta-view-siete.dart';
 import 'package:covid/pages/encuesta-view-tres.dart';
 import 'package:covid/pages/encuesta-view-uno.dart';
 import 'package:covid/pages/home.dart';
@@ -57,9 +62,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case VideosViewRoute:
       return MaterialPageRoute(builder: (context) => VideosPage());
-    
+
     case VideoPlayerViewRoute:
-      return MaterialPageRoute(builder: (context) => VideoPlayerPage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => VideoPlayerPage(obj: settings.arguments));
 
     case HomeViewRoute:
       return MaterialPageRoute(builder: (context) => HomePage());
@@ -94,6 +100,17 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case EncuestaVistaCincoViewRoute:
       return MaterialPageRoute(builder: (context) => EncuestaVistaCincoPage());
+
+    case EncuestaVistaSeisViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaSeisPage());
+    case EncuestaVistaSeisViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaSietePage());
+    case EncuestaVistaSeisViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaOchoPage());
+    case EncuestaVistaSeisViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaNuevePage());
+    case EncuestaVistaSeisViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaDiesPage());
 
     case ResultadosNegativoViewRoute:
       return MaterialPageRoute(builder: (context) => ResultadosNegativoPage());

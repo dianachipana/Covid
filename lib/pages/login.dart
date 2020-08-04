@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../routing_constants.dart';
 import 'components/custom_form_field.dart';
 import 'components/custom_input_buscar.dart';
+import 'components/custom_loading.dart';
 // Copyright 2019 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -34,9 +35,12 @@ class PreloginViewFS extends StatefulWidget {
 class _PreloginViewState extends State<PreloginViewFS> {
   TextEditingController usuarioController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -192,6 +196,11 @@ class _PreloginViewState extends State<PreloginViewFS> {
               ),
                 BlocListener<PreloginBloc, PreloginState>(
                   listener: (context, state){
+                     if (state is LoadingPreLogin) {
+                            isLoading = true;
+                          } else {
+                            isLoading = false;
+                          }
                     if(state is ResponseDoPrelogin){
                       Map obj = {
                         'username': usuarioController.text,
@@ -208,13 +217,18 @@ class _PreloginViewState extends State<PreloginViewFS> {
                   },
                   child: BlocBuilder<PreloginBloc, PreloginState>(
                     builder: (context, state){
-                        return Container();
+                        return (isLoading)
+                              ? Center(
+                                  child: CustomLoading(
+                                      screenHeight: screenHeight,
+                                      screenWidth: screenWidth),
+                                )
+                              : Container();
                    }
                   ),
                 )
              ]
         ),
-      
       ),
     );
   }

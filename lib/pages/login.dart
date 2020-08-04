@@ -84,7 +84,18 @@ class _PreloginViewState extends State<PreloginViewFS> {
                       ),
                       Column(
                         children: <Widget>[
-                
+                          Center(
+                            child: Text(
+                              "---- ó ----",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color:  Color(0xff2a2798),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 18
+                              ),
+                              ),
+                            
+                          ) ,
                           SizedBox(
                             height: 20,
                           ),

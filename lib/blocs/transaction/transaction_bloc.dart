@@ -26,7 +26,8 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   Stream<TransactionState> _doGetTransactions(DoGetTransactions event) async* {
     yield LoadingTransaction();
     try {
-      List<Transaction> response = await transactionLogic.getTransactions();
+      List<Transaction> response = await transactionLogic.getTransactions(
+        filter : event.filter);
       yield ResponseDoGetTransactions(transactions: response);
     }catch(e){
       if((e is AccountException || e == AccountException) && e.message != null){

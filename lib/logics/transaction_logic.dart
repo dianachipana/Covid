@@ -7,7 +7,7 @@ import 'logic.dart';
 import 'package:http/http.dart' as http;
 
 abstract class TransactionLogic extends WService{
-  Future<List<Transaction>> getTransactions();
+  Future<List<Transaction>> getTransactions({int filter});
 
 }
 
@@ -24,10 +24,10 @@ class TransactionSimple extends TransactionLogic{
   List<Transaction>  listTransaction = new List<Transaction>();
 
   @override
-  Future<List<Transaction>> getTransactions() async {
+  Future<List<Transaction>> getTransactions({int filter}) async {
     dynamic client = new http.Client();
     await loadHeaders();
-    final response    = await client.get(appBackendURL + 'v1/video', headers: headers );
+    final response    = await client.get(appBackendURL + 'v1/video/search?category=' + filter.toString(), headers: headers );
     print (  response);
     print (  response.body);
     final decodeData  = json.decode(response.body);

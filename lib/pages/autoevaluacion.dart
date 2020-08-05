@@ -1,4 +1,3 @@
-import 'package:covid/pages/autoevaluacion-view.dart';
 import 'package:covid/pages/encuesta-view-uno.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

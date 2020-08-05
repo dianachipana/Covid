@@ -94,9 +94,5 @@ class PreguntasFrecuentesPageState extends State<PreguntasFrecuentesPage> {
     );
   }
 
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }
+
 }

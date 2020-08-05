@@ -1,5 +1,4 @@
-import 'package:covid/pages/resultados-negativo.dart';
-import 'package:covid/pages/resultados-positivo.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

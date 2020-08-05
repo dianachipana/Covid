@@ -1,5 +1,4 @@
-import 'package:covid/pages/resultados-negativo.dart';
-import 'package:covid/pages/resultados-positivo.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +53,7 @@ class EncuestaViewNuevePageState extends State<EncuestaVistaNuevePage> {
                             height: 50,
                             width: 80,
                             /*  padding: EdgeInsets.only(right:30,left: 45), */
-                            child: Image.asset('assets/images/assets/images/paciente.jpg'),
+                           /*  child: Image.asset('assets/images/assets/images/paciente.jpg'), */
                           ),
                           SizedBox(height: 10),
                         ],

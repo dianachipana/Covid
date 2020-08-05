@@ -4,7 +4,6 @@ import 'package:covid/models/transaction.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../models/transaction.dart';
 import '../../routing_constants.dart';
@@ -24,7 +23,9 @@ class TransactionListViewSF extends StatefulWidget {
 }
 
 class _TransactionListViewState extends State<TransactionListViewSF> {
+
   List<Transaction> videos = [];
+  List<Transaction> videosFilter = [];
   int category = 0;
   final swatch_1 = Colors.indigo[400];
   final swatch_2 = Colors.red[400];
@@ -39,18 +40,22 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
     return Scaffold(
         body: Column(children: <Widget>[
       _cabecera(width),
-      _botones(width),
+      /*   _botones(width), */
       _lista(context, width),
     ]));
   }
 
   Widget _lista(BuildContext context, double width) {
-    BlocProvider.of<TransactionBloc>(context)
+    if (videosFilter.length < 1) {
+      BlocProvider.of<TransactionBloc>(context)
         .add(DoGetTransactions(filter: category));
+    }
+    
     return BlocListener<TransactionBloc, TransactionState>(
         listener: (context, state) {
       if (state is ResponseDoGetTransactions) {
         videos = state.transactions;
+        videosFilter = state.transactions;
       }
       if (state is ErrorTransaction) {}
     }, child: BlocBuilder<TransactionBloc, TransactionState>(
@@ -75,110 +80,90 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
           height: 170,
           width: double.infinity,
           decoration: BoxDecoration(
-            color : Colors.white,
-            borderRadius:  BorderRadius.circular(20.0)
-          ),
-        )
-       /*  Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-             
-              Text(
-                video.title,
-                style: TextStyle(
-                  decoration: TextDecoration.none,
-                  color: Colors.black,
-                  fontSize: 18.0,
+              color: Colors.white, borderRadius: BorderRadius.circular(20.0)),
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(100, 30, 20, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: screenWidth * 0.52,
+                      child: Text(
+                        video.title,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        maxLines: 2,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              Text(
-                video.description,
-                style: TextStyle(
-                  decoration: TextDecoration.none,
-                  fontSize: 12.0,
-                  color: Color(0xff545c6b),
+                Text(video.description),
+                _buildRatingStarts(5),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+                    width: video.getCategory().length.toDouble() * 10,
+                    decoration: BoxDecoration(
+                        color: Colors.blue[50],
+                        borderRadius: BorderRadius.circular(10.0)),
+                    alignment: Alignment.center,
+                    child: Text(video.getCategory()),
+                  ),
                 ),
-              )
-            ],
+                SizedBox(height: 30),
+              ],
+            ),
           ),
         ),
-        video.imagen != null
-            ? GestureDetector(
-                onTap: () {
-                  Map obj = {
-                    'video': video.video,
-                    'title': video.title,
-                  };
-                  Navigator.pushNamed(
-                    context,
-                    VideoPlayerViewRoute,
-                    arguments: obj,
-                  );
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  width: screenWidth * 0.3,
-                  height: 120,
-                  child: FadeInImage(
-                    placeholder: AssetImage("assets/images/imagenofound.jpg"),
-                    image: NetworkImage(video.imagen),
-                    fit: BoxFit.cover,
-                  ),
-                ))
-            : SizedBox(width: 0.0) */
+        Positioned(
+          left: 20.0,
+          top: 25.0,
+          bottom: 25.0,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: video.imagen != null
+                ? GestureDetector(
+                    onTap: () {
+                      Map obj = {
+                        'video': video.video,
+                        'title': video.title,
+                      };
+                      Navigator.pushNamed(
+                        context,
+                        VideoPlayerViewRoute,
+                        arguments: obj,
+                      );
+                    },
+                    child: FadeInImage(
+                      width: 110.0,
+                      placeholder: AssetImage("assets/images/imagenofound.jpg"),
+                      image: NetworkImage(video.imagen),
+                      fit: BoxFit.cover,
+                    ))
+                : SizedBox(width: 0.0),
+          ),
+        )
       ],
     );
-
-    /*    Dismissible(
-        key: UniqueKey(),
-        background: Container(color: Colors.red),
-        child: Card(
-            child: Column(
-          children: <Widget>[
-            GestureDetector(
-              child: ListTile(
-                leading: FadeInImage(
-                    image: NetworkImage(video.imagen),
-                    placeholder: AssetImage("assets/images/imagenofound.jpg")),
-                title: Text(video.title),
-                subtitle: Text(video.description),
-                onTap: () {
-                  Map obj = {
-                    'video': video.video,
-                    'title': video.title,
-                  };
-                  Navigator.pushNamed(
-                    context,
-                    VideoPlayerViewRoute,
-                    arguments: obj,
-                  );
-                },
-              ),
-            ),
-          ],
-        ))); */
   }
 
   _cabecera(width) {
     return Stack(
       children: <Widget>[
         Container(
-            height: width,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30.0),
-                boxShadow: [
-                  BoxShadow(color: Colors.black26, offset: Offset(0.0, 2.0))
-                ]),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
-              child: Image(
-                  image: AssetImage('assets/images/videos-portada.png'),
-                  fit: BoxFit.cover),
-            )),
+          height: 240,
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(color: Color(0xff21bfbd), offset: Offset(0.0, 2.0))
+          ]),
+        ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
           child: Row(
@@ -187,15 +172,36 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
               IconButton(
                   icon: Icon(Icons.arrow_back),
                   iconSize: 30,
-                  color: Colors.black,
+                  color: Colors.white,
                   onPressed: () => Navigator.pop(context)),
-              IconButton(
-                  icon: Icon(Icons.search),
-                  iconSize: 30,
-                  color: Colors.black,
-                  onPressed: () => Navigator.pop(context))
+             
             ],
           ),
+        ),
+        SizedBox(
+          height: 25.0,
+        ),
+        Positioned(
+            top: 100,
+            left: width * 0.18,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text("Videos",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w600)),
+                SizedBox(
+                  width: 25.0,
+                ),
+                Text("Informativos",
+                    style: TextStyle(color: Colors.white, fontSize: 25)),
+              ],
+            )),
+        Positioned(top: 150, left: width * 0.05, child: _botones(width)),
+        SizedBox(
+          height: 25.0,
         ),
       ],
     );
@@ -205,55 +211,59 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        Container(
-            width: width * 0.26,
-            child: MaterialButton(
-                onPressed: () {
-                  this.category = 1;
-                  BlocProvider.of<TransactionBloc>(context)
-                      .add(DoGetTransactions(filter: category));
-                },
-                color: swatch_1,
-                disabledColor: Theme.of(context).disabledColor,
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0)),
-                child: Text(
-                  'Mitos',
-                  style: TextStyle(color: Colors.white),
-                ))),
-        Container(
-            width: width * 0.26,
-            child: MaterialButton(
-                onPressed: () {
-                  this.category = 2;
-                  BlocProvider.of<TransactionBloc>(context)
-                      .add(DoGetTransactions(filter: category));
-                },
-                color: swatch_2,
-                disabledColor: Theme.of(context).disabledColor,
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0)),
-                child: Text(
-                  'Cuidados en casa',
-                  style: TextStyle(color: Colors.white),
-                ))),
-        Container(
-            width: width * 0.26,
-            child: MaterialButton(
-                onPressed: () {
-                  this.category = 3;
-                  BlocProvider.of<TransactionBloc>(context)
-                      .add(DoGetTransactions(filter: category));
-                },
-                color: swatch_3,
-                disabledColor: Theme.of(context).disabledColor,
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0)),
-                child: Text(
-                  'Cuidados al salir',
-                  style: TextStyle(color: Colors.white),
-                ))),
+        Card(
+          elevation: 3.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(2.0)),
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  margin:
+                      EdgeInsets.symmetric(vertical: 5.0, horizontal: 0.0),
+                  width: width * 0.7,
+                 /*  height: 50, */
+                  child: TextField(
+                    autofocus: true,
+                    decoration: InputDecoration(hintText: "buscar...."),
+                    onChanged: (text)  { 
+                      text = text.toLowerCase();
+                      setState((){
+                       
+                        videos = videosFilter.where((video){
+                        var videoTitle = video.title.toLowerCase();
+                        return videoTitle.contains(text);
+                        }).toList();
+                    });
+                    } 
+                  )),
+                SizedBox(
+                  width: 10.0,
+                ),
+                GestureDetector(
+                  child: Icon(
+                    Icons.search,
+                    color: Colors.black54,
+                  ),
+                  onTap: () {},
+                ),
+               
+              ],
+            ),
+          ),
+        )
       ],
     );
+  }
+
+  Text _buildRatingStarts(int raiting) {
+    String starts = '';
+    for (int i = 0; i < raiting; i++) {
+      starts += '⭐';
+    }
+    return Text(starts);
   }
 }

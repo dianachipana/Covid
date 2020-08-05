@@ -5,6 +5,7 @@ import 'package:covid/models/Question.dart';
 import 'logic.dart';
 
 import 'package:http/http.dart' as http;
+import 'dart:convert' show utf8;
 
 abstract class QuestionLogic extends WService{
   Future<List<Question>> getQuestions();
@@ -28,9 +29,9 @@ class QuestionSimple extends QuestionLogic{
     dynamic client = new http.Client();
     await loadHeaders();
     final response    = await client.get(appBackendURL + 'v1/pregunta', headers: headers );
-    print (  response);
-    print (  response.body);
-    final decodeData  = json.decode(response.body);
+  
+  
+    final decodeData  = json.decode(Utf8Decoder().convert(response.bodyBytes));
     await client.close();
     if(response.statusCode==200){
         final _listQuestions = new  Questions.fromJsonList(decodeData);

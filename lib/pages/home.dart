@@ -25,39 +25,42 @@ class HomePageState extends State<HomePage> {
           /*  crossAxisAlignment: CrossAxisAlignment.start, */
           children: <Widget>[
             Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Image.asset('assets/images/home.png')),
+                padding: EdgeInsets.only(top: 15),
+                child: Image(
+                  width: width,
+                  image: AssetImage('assets/images/home.png')
+                  )),
             Center(
               child: Padding(
-                  padding: EdgeInsets.only(top: 250), child: _autoevaluacion()),
+                  padding: EdgeInsets.only(top: 250), child: _autoevaluacion(width)),
             ),
             Row(
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(top: 360, left: 20),
-                  child: _sintomas(),
+                  child: _sintomas(width),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 360, left: 20),
-                  child: _cuidados(),
+                  child: _cuidados(width),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 360, left: 20),
-                  child: _salir(),
+                  child: _salir(width),
                 ),
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(top: 460, left: 30),
-              child: _autoevaluacion2(),
+              padding: EdgeInsets.only(top: 460, left: width*0.05),
+              child: _autoevaluacion2(width),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 560, left: 30),
-              child: _preguntas(),
+              padding: EdgeInsets.only(top: 560, left: width*0.05),
+              child: _preguntas(width),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 660, left: 30),
-              child: _receta(),
+              padding: EdgeInsets.only(top: 660, left: width*0.05),
+              child: _receta(width),
             )
           ],
         ),
@@ -65,14 +68,14 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  _autoevaluacion() {
+  _autoevaluacion(width) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, AutoevaluacionViewRoute);
       },
       child: Container(
         height: 100.0,
-        width: 300.0,
+        width: width*0.9,
         decoration: BoxDecoration(
           color: Colors.blue[100],
           borderRadius: BorderRadius.circular(20),
@@ -111,7 +114,7 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  _sintomas() {
+  _sintomas(width) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, SintomasViewRoute);
@@ -119,7 +122,7 @@ class HomePageState extends State<HomePage> {
       child: Container(
         padding: EdgeInsets.only(top: 10),
         height: 90.0,
-        width: 90.0,
+        width:  width*0.265,
         decoration: BoxDecoration(
           color: Color(0xff6c63ff),
           borderRadius: BorderRadius.circular(10),
@@ -141,7 +144,7 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  _cuidados() {
+  _cuidados(width) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, ProtegeteEnCasaViewRoute);
@@ -149,7 +152,7 @@ class HomePageState extends State<HomePage> {
       child: Container(
         padding: EdgeInsets.only(top: 10),
         height: 90.0,
-        width: 90.0,
+        width:  width*0.265,
         decoration: BoxDecoration(
           color: Color(0xffff505d),
           borderRadius: BorderRadius.circular(10),
@@ -175,7 +178,7 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  _salir() {
+  _salir(width) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, ProtegeteAlSalirViewRoute);
@@ -183,7 +186,7 @@ class HomePageState extends State<HomePage> {
       child: Container(
         padding: EdgeInsets.only(top: 10),
         height: 90.0,
-        width: 90.0,
+        width: width*0.265,
         decoration: BoxDecoration(
           color: Color(0xffffc140),
           borderRadius: BorderRadius.circular(10),
@@ -209,14 +212,14 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  _autoevaluacion2() {
+  _autoevaluacion2(width) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, VideosViewRoute);
       },
       child: Container(
         height: 90.0,
-        width: 300.0,
+        width: width*0.9,
         decoration: BoxDecoration(
           color: Colors.blue[50],
           borderRadius: BorderRadius.circular(20),
@@ -255,7 +258,7 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  _preguntas() {
+  _preguntas(width) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, PreguntasFrecuentesViewRoute);
@@ -263,7 +266,7 @@ class HomePageState extends State<HomePage> {
       child: Container(
         padding: EdgeInsets.only(left: 5),
         height: 90.0,
-        width: 300.0,
+         width: width*0.9,
         decoration: BoxDecoration(
           color: Colors.blue[50],
           borderRadius: BorderRadius.circular(20),
@@ -299,7 +302,7 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  _receta() {
+  _receta(width) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, RecetaViewRoute);
@@ -307,7 +310,7 @@ class HomePageState extends State<HomePage> {
       child: Container(
         padding: EdgeInsets.only(left: 5),
         height: 90.0,
-        width: 300.0,
+        width: width*0.9,
         decoration: BoxDecoration(
           color: Colors.blue[50],
           borderRadius: BorderRadius.circular(20),

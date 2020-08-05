@@ -28,9 +28,8 @@ class TransactionSimple extends TransactionLogic{
     dynamic client = new http.Client();
     await loadHeaders();
     final response    = await client.get(appBackendURL + 'v1/video/search?category=' + filter.toString(), headers: headers );
-    print (  response);
-    print (  response.body);
-    final decodeData  = json.decode(response.body);
+   
+    final decodeData  = json.decode(Utf8Decoder().convert(response.bodyBytes));
     await client.close();
     if(response.statusCode==200){
         final _listTransactions = new  Transactions.fromJsonList(decodeData);

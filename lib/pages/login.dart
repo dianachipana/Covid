@@ -17,9 +17,7 @@ class LoginPage extends StatelessWidget  {
 
    @override
   Widget build(BuildContext context) {
-     SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
     return BlocProvider(
       create: (_)=>PreloginBloc(authenticationLogic: AuthenticationSimple()),
       child: PreloginViewFS()
@@ -131,11 +129,6 @@ class _PreloginViewState extends State<PreloginViewFS> {
                                 ),
                           SizedBox(
                             height: 10,
-                          ),
-                          Text(
-                            "Olvidaste tu contraseña?",
-                            textAlign: TextAlign.right,
-                            style: TextStyle(color: Color(0xff2a2798)),
                           ),
                         ],
                       ),

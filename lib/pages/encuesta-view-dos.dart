@@ -1,19 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'encuesta-view-tres.dart';
+import '../routing_constants.dart';
 
 class EncuestaVistaDosPage extends StatefulWidget {
+  final Map obj;
+  EncuestaVistaDosPage({Key key, @required this.obj}) : super(key: key);
   @override
-  State<StatefulWidget> createState() => EncuestaViewDosPageState();
+  State<StatefulWidget> createState() => EncuestaViewDosPageState(obj: obj);
 }
 
 class EncuestaViewDosPageState extends State<EncuestaVistaDosPage> {
+  Map obj;
+  EncuestaViewDosPageState({this.obj});
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-
+    print("as " + this.obj['punto']);
     return Scaffold(
         backgroundColor: Colors.deepPurpleAccent[400],
         body: SafeArea(
@@ -68,11 +72,15 @@ class EncuestaViewDosPageState extends State<EncuestaVistaDosPage> {
                     children: <Widget>[
                       MaterialButton(
                           onPressed: () {
-                            Navigator.push(
+                            
+                             Map obj2 = {
+                            'punto':   (int.parse(this.obj['punto']) + 1).toString(),
+                            
+                            };
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      EncuestaVistaTresPage()),
+                              EncuestaVistaTresViewRoute,
+                              arguments: obj2,
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,
@@ -88,11 +96,14 @@ class EncuestaViewDosPageState extends State<EncuestaVistaDosPage> {
                       SizedBox(width: 30),
                       MaterialButton(
                           onPressed: () {
-                            Navigator.push(
+                             Map obj2 = {
+                            'punto':  (int.parse(this.obj['punto']) + 0).toString(),
+                            
+                            };
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      EncuestaVistaTresPage()),
+                              EncuestaVistaTresViewRoute,
+                              arguments: obj2,
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,

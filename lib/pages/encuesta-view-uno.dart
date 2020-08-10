@@ -1,3 +1,4 @@
+import 'package:covid/routing_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class EncuestaViewUnoPageState extends State<EncuestaVistaUnoPage> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-
+    
     return Scaffold(
         backgroundColor: Colors.deepPurpleAccent[400],
         body: SafeArea(
@@ -64,11 +65,15 @@ class EncuestaViewUnoPageState extends State<EncuestaVistaUnoPage> {
                     children: <Widget>[
                       MaterialButton(
                           onPressed: () {
-                            Navigator.push(
+                            Map obj = {
+                            'punto': '1'
+                            };
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => EncuestaVistaDosPage()),
+                              EncuestaVistaDosViewRoute,
+                              arguments: obj,
                             );
+                         
                           },
                           disabledColor: Theme.of(context).disabledColor,
                           color: Colors.white,
@@ -83,10 +88,13 @@ class EncuestaViewUnoPageState extends State<EncuestaVistaUnoPage> {
                           SizedBox(width: 30),
                       MaterialButton(
                           onPressed: () {
-                            Navigator.push(
+                            Map obj = {
+                            'punto': '0'
+                            };
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => EncuestaVistaDosPage()),
+                              EncuestaVistaDosViewRoute,
+                              arguments: obj,
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,

@@ -6,7 +6,6 @@ const String SintomasViewRoute = 'sintomas';
 const String SintomasVistaViewRoute = 'sintomas-vista';
 const String HomeViewRoute = 'home';
 const String VideoPlayerViewRoute = 'video_player';
-
 const String ProtegeteEnCasaViewRoute = 'protegete-en-casa';
 const String ProtegeteEnCasaVistaViewRoute = 'protegete-en-casa-vista';
 const String VideosViewRoute = 'videos';
@@ -25,6 +24,5 @@ const String EncuestaVistaSieteViewRoute = 'encuesta-vista-siete';
 const String EncuestaVistaOchoViewRoute = 'encuesta-vista-ocho';
 const String EncuestaVistaNueveViewRoute = 'encuesta-vista-nueve';
 const String EncuestaVistaDiesViewRoute = 'encuesta-vista-dies';
-const String ResultadosNegativoViewRoute = 'resultados-negativo';
 const String ResultadosPositivoViewRoute = 'resultados-positivo';
 const String RecetaViewRoute = 'receta';

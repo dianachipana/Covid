@@ -23,7 +23,6 @@ import 'package:covid/pages/protegete-en-casa-view.dart';
 import 'package:covid/pages/protegete-en-casa.dart';
 import 'package:covid/pages/receta-view.dart';
 import 'package:covid/pages/register.dart';
-import 'package:covid/pages/resultados-negativo.dart';
 import 'package:covid/pages/resultados-positivo.dart';
 import 'package:covid/pages/sintomas-view.dart';
 import 'package:covid/pages/sintomas.dart';
@@ -34,7 +33,6 @@ import 'package:flutter/material.dart';
 import 'pages/undefined.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
-  Map obj;
   switch (settings.name) {
     case LoginViewRoute:
       return MaterialPageRoute(builder: (context) => LoginPage());
@@ -61,12 +59,38 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ProtegeteEnCasaVista());
 
     case VideosViewRoute:
+      
       return MaterialPageRoute(builder: (context) => VideosPage());
 
+  
+    case EncuestaVistaDosViewRoute:
+      return MaterialPageRoute( builder: (context) => EncuestaVistaDosPage(obj: settings.arguments));
+
+    case EncuestaVistaTresViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaTresPage(obj: settings.arguments));
+
+    case EncuestaVistaCuatroViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaCuatroPage(obj: settings.arguments));
+
+    case EncuestaVistaCincoViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaCincoPage(obj: settings.arguments));
+
+    case EncuestaVistaSeisViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaSeisPage(obj: settings.arguments));
+    case EncuestaVistaSieteViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaSietePage(obj: settings.arguments));
+    case EncuestaVistaOchoViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaOchoPage(obj: settings.arguments));
+    case EncuestaVistaNueveViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaNuevePage(obj: settings.arguments));
+    case EncuestaVistaDiesViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaDiesPage(obj: settings.arguments));
+
+    case ResultadosPositivoViewRoute:
+      return MaterialPageRoute(builder: (context) => ResultadosPositivoPage(obj: settings.arguments));
     case VideoPlayerViewRoute:
       return MaterialPageRoute(
           builder: (context) => VideoPlayerPage(obj: settings.arguments));
-
     case HomeViewRoute:
       return MaterialPageRoute(builder: (context) => HomePage());
 
@@ -89,34 +113,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case EncuestaVistaUnoViewRoute:
       return MaterialPageRoute(builder: (context) => EncuestaVistaUnoPage());
 
-    case EncuestaVistaDosViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaDosPage());
-
-    case EncuestaVistaTresViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaTresPage());
-
-    case EncuestaVistaCuatroViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaCuatroPage());
-
-    case EncuestaVistaCincoViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaCincoPage());
-
-    case EncuestaVistaSeisViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaSeisPage());
-    case EncuestaVistaSeisViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaSietePage());
-    case EncuestaVistaSeisViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaOchoPage());
-    case EncuestaVistaSeisViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaNuevePage());
-    case EncuestaVistaSeisViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaDiesPage());
-
-    case ResultadosNegativoViewRoute:
-      return MaterialPageRoute(builder: (context) => ResultadosNegativoPage());
-
-    case ResultadosPositivoViewRoute:
-      return MaterialPageRoute(builder: (context) => ResultadosPositivoPage());
+    
 
     case RecetaViewRoute:
       return MaterialPageRoute(builder: (context) => RecetaPage());

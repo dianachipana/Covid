@@ -3,6 +3,7 @@ import 'package:covid/logics/transaction_logic.dart';
 import 'package:covid/models/transaction.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../models/transaction.dart';
@@ -11,6 +12,8 @@ import '../../routing_constants.dart';
 class VideosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+       SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
+
     return BlocProvider<TransactionBloc>(
         create: (_) => TransactionBloc(transactionLogic: TransactionSimple()),
         child: TransactionListViewSF());
@@ -104,7 +107,7 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
                     ),
                   ],
                 ),
-                Text(video.description),
+                /* Text(video.description.substring(0,10)), */
                 _buildRatingStarts(5),
                 Padding(
                   padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -135,7 +138,10 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
                       Map obj = {
                         'video': video.video,
                         'title': video.title,
+                        'imagen': video.imagen,
+                        'description' : video.description
                       };
+                
                       Navigator.pushNamed(
                         context,
                         VideoPlayerViewRoute,

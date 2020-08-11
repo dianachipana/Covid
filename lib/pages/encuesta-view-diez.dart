@@ -3,8 +3,6 @@ import 'package:covid/pages/resultados-positivo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'encuesta-view-cinco.dart';
-
 class EncuestaVistaDiesPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => EncuestaViewDiesPageState();
@@ -13,10 +11,10 @@ class EncuestaVistaDiesPage extends StatefulWidget {
 class EncuestaViewDiesPageState extends State<EncuestaVistaDiesPage> {
   @override
   Widget build(BuildContext context) {
-     final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-   return Scaffold(
+    return Scaffold(
         backgroundColor: Colors.deepPurpleAccent[400],
         body: SafeArea(
           child: SingleChildScrollView(
@@ -38,17 +36,18 @@ class EncuestaViewDiesPageState extends State<EncuestaVistaDiesPage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 10',
+                          Text('Pregunta 10 de 10',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(
                             height: 20.0,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(right: 20,left: 20),
-                              child: Text('¿Ha estado al cuidado d eun familiar o paciente positivo al COVID?',
-                                style:
-                                    TextStyle(fontSize: 18, color: Colors.black)),
+                            padding: EdgeInsets.only(right: 20, left: 20),
+                            child: Text(
+                                '¿Ha estado al cuidado d eun familiar o paciente positivo al COVID?',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black)),
                           ),
                           Container(
                             height: 80,
@@ -73,7 +72,7 @@ class EncuestaViewDiesPageState extends State<EncuestaVistaDiesPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                       EncuestaVistaCincoPage()),
+                                      ResultadosPositivoPage()),
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,
@@ -93,7 +92,7 @@ class EncuestaViewDiesPageState extends State<EncuestaVistaDiesPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                       EncuestaVistaCincoPage() ),
+                                      ResultadosNegativoPage()),
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,

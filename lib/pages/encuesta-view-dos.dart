@@ -36,7 +36,7 @@ class EncuestaViewDosPageState extends State<EncuestaVistaDosPage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 2',
+                          Text('Pregunta 2 de 10',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(

@@ -1,16 +1,17 @@
-import 'package:covid/pages/resultados-negativo.dart';
-import 'package:covid/pages/resultados-positivo.dart';
+import 'package:covid/pages/receta-fase-dos.dart';
+import 'package:covid/pages/receta-fase-uno.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'encuesta-view-ocho.dart';
+import 'encuesta-view-siete.dart';
 
-class EncuestaVistaSietePage extends StatefulWidget {
+class EncuestaMedicamentosDosPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => EncuestaViewSietePageState();
+  State<StatefulWidget> createState() => EncuestaMedicamentosDosPageState();
 }
 
-class EncuestaViewSietePageState extends State<EncuestaVistaSietePage> {
+class EncuestaMedicamentosDosPageState
+    extends State<EncuestaMedicamentosDosPage> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -38,24 +39,30 @@ class EncuestaViewSietePageState extends State<EncuestaVistaSietePage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 7 de 10',
+                          Text('Pregunta 2 de 2',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(
-                            height: 20.0,
+                            height: 15.0,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(right: 20, left: 20),
-                            child: Text('¿Ha tenido fiebre?',
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.black)),
-                          ),
-                          Container(
-                            height: 80,
-                            width: 80,
-                            /*  padding: EdgeInsets.only(right:30,left: 45), */
-                            child: Image.asset('assets/images/fiebre.jpg'),
-                          ),
+                              padding:
+                                  EdgeInsets.only(right: 20, left: 20, top: 20),
+                              child: Text(
+                                  '¿Está presentando dos o más sintomas?',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.black))),
+                          Padding(
+                              padding:
+                                  EdgeInsets.only(right: 20, left: 20, top: 10),
+                              child: Container(
+                                height: 80,
+                                width: 80,
+                                /*  padding: EdgeInsets.only(right:30,left: 45), */
+
+                                child:
+                                    Image.asset('assets/images/escalofrio.jpg'),
+                              )),
                           SizedBox(height: 10),
                         ],
                       ),
@@ -72,8 +79,7 @@ class EncuestaViewSietePageState extends State<EncuestaVistaSietePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      EncuestaVistaOchoPage()),
+                                  builder: (context) => RecetaFaseDosPage()),
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,
@@ -92,8 +98,7 @@ class EncuestaViewSietePageState extends State<EncuestaVistaSietePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      EncuestaVistaOchoPage()),
+                                  builder: (context) => RecetaFaseUnoPage()),
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,

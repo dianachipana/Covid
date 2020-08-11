@@ -11,7 +11,7 @@ class EncuestaVistaTresPage extends StatefulWidget {
 class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
   @override
   Widget build(BuildContext context) {
- final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -36,7 +36,7 @@ class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 3',
+                          Text('Pregunta 3 de 10',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(
@@ -45,12 +45,12 @@ class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
                           Text('¿Tienes dolor de garganta?',
                               style:
                                   TextStyle(fontSize: 18, color: Colors.black)),
-                                  Container(
-                                    height: 80,
-                                    width: 80,
-                          /*  padding: EdgeInsets.only(right:30,left: 45), */
+                          Container(
+                            height: 80,
+                            width: 80,
+                            /*  padding: EdgeInsets.only(right:30,left: 45), */
                             child: Image.asset('assets/images/dolor.jpg'),
-                        ),
+                          ),
                           SizedBox(height: 10),
                         ],
                       ),
@@ -67,7 +67,8 @@ class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EncuestaVistaCuatroPage()),
+                                  builder: (context) =>
+                                      EncuestaVistaCuatroPage()),
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,
@@ -80,13 +81,14 @@ class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
                           child: Text(
                             'Si',
                           )),
-                          SizedBox(width: 30),
+                      SizedBox(width: 30),
                       MaterialButton(
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EncuestaVistaCuatroPage()),
+                                  builder: (context) =>
+                                      EncuestaVistaCuatroPage()),
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,

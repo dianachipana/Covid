@@ -36,7 +36,7 @@ class EncuestaViewCuatroPageState extends State<EncuestaVistaCuatroPage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 4',
+                          Text('Pregunta 4 de 10',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(

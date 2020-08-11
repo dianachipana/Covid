@@ -39,7 +39,6 @@ import 'package:flutter/material.dart';
 import 'pages/undefined.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
-  Map obj;
   switch (settings.name) {
     case LoginViewRoute:
       return MaterialPageRoute(builder: (context) => LoginPage());
@@ -68,10 +67,49 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case VideosViewRoute:
       return MaterialPageRoute(builder: (context) => VideosPage());
 
+    case EncuestaVistaDosViewRoute:
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaDosPage(obj: settings.arguments));
+
+    case EncuestaVistaTresViewRoute:
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaTresPage(obj: settings.arguments));
+
+    case EncuestaVistaCuatroViewRoute:
+      return MaterialPageRoute(
+          builder: (context) =>
+              EncuestaVistaCuatroPage(obj: settings.arguments));
+
+    case EncuestaVistaCincoViewRoute:
+      return MaterialPageRoute(
+          builder: (context) =>
+              EncuestaVistaCincoPage(obj: settings.arguments));
+
+    case EncuestaVistaSeisViewRoute:
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaSeisPage(obj: settings.arguments));
+    case EncuestaVistaSieteViewRoute:
+      return MaterialPageRoute(
+          builder: (context) =>
+              EncuestaVistaSietePage(obj: settings.arguments));
+    case EncuestaVistaOchoViewRoute:
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaOchoPage(obj: settings.arguments));
+    case EncuestaVistaNueveViewRoute:
+      return MaterialPageRoute(
+          builder: (context) =>
+              EncuestaVistaNuevePage(obj: settings.arguments));
+    case EncuestaVistaDiesViewRoute:
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaDiesPage(obj: settings.arguments));
+
+    case ResultadosPositivoViewRoute:
+      return MaterialPageRoute(
+          builder: (context) =>
+              ResultadosPositivoPage(obj: settings.arguments));
     case VideoPlayerViewRoute:
       return MaterialPageRoute(
           builder: (context) => VideoPlayerPage(obj: settings.arguments));
-
     case HomeViewRoute:
       return MaterialPageRoute(builder: (context) => HomePage());
 

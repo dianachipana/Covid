@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../routing_constants.dart';
 // Copyright 2019 The Chromium Authors. All rights reserved.
@@ -16,7 +17,7 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final bool keyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent[700],
       body: SingleChildScrollView(

@@ -1,14 +1,17 @@
+import 'package:covid/routing_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'encuesta-view-diez.dart';
-
 class EncuestaVistaNuevePage extends StatefulWidget {
+  final Map obj;
+  EncuestaVistaNuevePage({Key key, @required this.obj}) : super(key: key);
   @override
-  State<StatefulWidget> createState() => EncuestaViewNuevePageState();
+  State<StatefulWidget> createState() => EncuestaViewNuevePageState(obj: obj);
 }
 
 class EncuestaViewNuevePageState extends State<EncuestaVistaNuevePage> {
+  final Map obj;
+  EncuestaViewNuevePageState({this.obj});
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -68,11 +71,14 @@ class EncuestaViewNuevePageState extends State<EncuestaVistaNuevePage> {
                     children: <Widget>[
                       MaterialButton(
                           onPressed: () {
-                            Navigator.push(
+                            Map obj2 = {
+                              'punto':
+                                  (int.parse(this.obj['punto']) + 3).toString(),
+                            };
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      EncuestaVistaDiesPage()),
+                              EncuestaVistaDiesViewRoute,
+                              arguments: obj2,
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,
@@ -88,11 +94,14 @@ class EncuestaViewNuevePageState extends State<EncuestaVistaNuevePage> {
                       SizedBox(width: 30),
                       MaterialButton(
                           onPressed: () {
-                            Navigator.push(
+                            Map obj2 = {
+                              'punto':
+                                  (int.parse(this.obj['punto']) + 0).toString(),
+                            };
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      EncuestaVistaDiesPage()),
+                              EncuestaVistaDiesViewRoute,
+                              arguments: obj2,
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,

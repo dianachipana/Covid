@@ -1,16 +1,19 @@
-import 'package:covid/pages/resultados-negativo.dart';
-import 'package:covid/pages/resultados-positivo.dart';
+
+import 'package:covid/routing_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'encuesta-view-ocho.dart';
 
 class EncuestaVistaSietePage extends StatefulWidget {
+  final Map obj;
+  EncuestaVistaSietePage({Key key, @required this.obj}) : super(key: key);
   @override
-  State<StatefulWidget> createState() => EncuestaViewSietePageState();
+  State<StatefulWidget> createState() => EncuestaViewSietePageState(obj : obj);
 }
 
 class EncuestaViewSietePageState extends State<EncuestaVistaSietePage> {
+  Map obj;
+  EncuestaViewSietePageState({this.obj});
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -69,11 +72,14 @@ class EncuestaViewSietePageState extends State<EncuestaVistaSietePage> {
                     children: <Widget>[
                       MaterialButton(
                           onPressed: () {
-                            Navigator.push(
+                            Map obj2 = {
+                            'punto':  (int.parse(this.obj['punto']) + 2).toString(),
+                            
+                            };
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      EncuestaVistaOchoPage()),
+                              EncuestaVistaOchoViewRoute,
+                              arguments: obj2,
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,
@@ -88,12 +94,15 @@ class EncuestaViewSietePageState extends State<EncuestaVistaSietePage> {
                           )),
                       SizedBox(width: 30),
                       MaterialButton(
-                          onPressed: () {
-                            Navigator.push(
+                           onPressed: () {
+                            Map obj2 = {
+                            'punto':  (int.parse(this.obj['punto']) + 0).toString(),
+                            
+                            };
+                            Navigator.pushNamed(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      EncuestaVistaOchoPage()),
+                              EncuestaVistaOchoViewRoute,
+                              arguments: obj2,
                             );
                           },
                           disabledColor: Theme.of(context).disabledColor,

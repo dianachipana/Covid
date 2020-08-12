@@ -14,16 +14,17 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent[700],
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
             Padding(
-                padding: EdgeInsets.only(top: 15),
+                padding: EdgeInsets.only(top: 25),
                 child: Image(
-                    width: width, image: AssetImage('assets/images/home.jpg'))),
+                    width: width, image: AssetImage('assets/images/home.png'))),
             Container(
               child: Padding(
                 padding: EdgeInsets.only(top: 230),
@@ -76,7 +77,7 @@ class HomePageState extends State<HomePage> {
           borderRadius: new BorderRadius.only(
               topLeft: const Radius.circular(40.0),
               topRight: const Radius.circular(40.0)),
-          color: Colors.deepPurpleAccent[400],
+          color: Colors.white,
         ));
   }
 
@@ -89,7 +90,7 @@ class HomePageState extends State<HomePage> {
         height: 100.0,
         width: width * 0.9,
         decoration: BoxDecoration(
-          color: Colors.deepPurple[900],
+          color: Colors.blue[100],
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -99,7 +100,7 @@ class HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(right: 15),
                 child: Icon(
                   Icons.remove_red_eye,
-                  color: Colors.white,
+                  color: Colors.black,
                   size: 50.0,
                 )),
             Container(
@@ -110,16 +111,16 @@ class HomePageState extends State<HomePage> {
                 ),
                 Text('Autoevaluación COVID-19 ',
                     textAlign: TextAlign.justify,
-                    style: TextStyle(fontSize: 16, color: Colors.white)),
+                    style: TextStyle(fontSize: 16, color: Colors.black)),
                 Text(
                     'Herramienta de autoevaluación para ayudar a determinar si debe hacerse la prueba de COVID-19. ',
                     textAlign: TextAlign.justify,
-                    style: TextStyle(fontSize: 14, color: Colors.white)),
+                    style: TextStyle(fontSize: 14, color: Colors.black)),
               ]),
             ),
             Icon(
               Icons.navigate_next,
-              color: Colors.white,
+              color: Colors.black,
               size: 30.0,
             ),
           ],
@@ -235,7 +236,7 @@ class HomePageState extends State<HomePage> {
         height: 90.0,
         width: width * 0.9,
         decoration: BoxDecoration(
-          color: Colors.deepPurple[900],
+          color: Colors.blue[100],
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -245,7 +246,7 @@ class HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(right: 15),
               child: Icon(
                 Icons.videocam,
-                color: Colors.white,
+                color: Colors.black,
                 size: 50.0,
               ),
             ),
@@ -258,12 +259,12 @@ class HomePageState extends State<HomePage> {
                 Text(
                     'En esta sección encontrarás más información sobre el COVID-19. ',
                     textAlign: TextAlign.justify,
-                    style: TextStyle(fontSize: 14, color: Colors.white)),
+                    style: TextStyle(fontSize: 14, color: Colors.black)),
               ]),
             ),
             Icon(
               Icons.navigate_next,
-              color: Colors.white,
+              color: Colors.black,
               size: 30.0,
             ),
           ],
@@ -282,7 +283,7 @@ class HomePageState extends State<HomePage> {
         height: 90.0,
         width: width * 0.9,
         decoration: BoxDecoration(
-          color: Colors.deepPurple[900],
+          color: Colors.blue[100],
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -292,7 +293,7 @@ class HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(right: 15),
               child: Icon(
                 Icons.question_answer,
-                color: Colors.white,
+                color: Colors.black,
                 size: 50.0,
               ),
             ),
@@ -305,12 +306,12 @@ class HomePageState extends State<HomePage> {
                 Text(
                     'Preguntas Frecuentes, en esta sección aclararemos tus dudas sobre el COVID-19 ',
                     textAlign: TextAlign.justify,
-                    style: TextStyle(fontSize: 14, color: Colors.white)),
+                    style: TextStyle(fontSize: 14, color: Colors.black)),
               ]),
             ),
             Icon(
               Icons.navigate_next,
-              color: Colors.white,
+              color: Colors.black,
               size: 30.0,
             ),
           ],
@@ -329,7 +330,7 @@ class HomePageState extends State<HomePage> {
         height: 90.0,
         width: width * 0.9,
         decoration: BoxDecoration(
-          color: Colors.deepPurple[900],
+          color: Colors.blue[100],
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -340,7 +341,7 @@ class HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(right: 15),
               child: Icon(
                 Icons.location_searching,
-                color: Colors.white,
+                color: Colors.black,
                 size: 50.0,
               ),
             ),
@@ -351,14 +352,14 @@ class HomePageState extends State<HomePage> {
                   height: 12,
                 ),
                 Text(
-                    'Averigua qué medicamentos te podrían ayudar combatir el COVID-19.',
+                    'Averigua qué medicamentos te podrían ayudar a combatir el COVID-19.',
                     textAlign: TextAlign.justify,
-                    style: TextStyle(fontSize: 14, color: Colors.white)),
+                    style: TextStyle(fontSize: 14, color: Colors.black)),
               ]),
             ),
             Icon(
               Icons.navigate_next,
-              color: Colors.white,
+              color: Colors.black,
               size: 30.0,
             ),
           ],

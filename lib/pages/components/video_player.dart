@@ -22,7 +22,7 @@ class VideoState extends State<VideoPlayerPage> {
          
     final width = MediaQuery.of(context).size.width;
     SystemChrome.setEnabledSystemUIOverlays([]);
-    
+    SystemChrome.setPreferredOrientations( [DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
     
                /*   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]); */
 
@@ -119,7 +119,7 @@ class VideoState extends State<VideoPlayerPage> {
     super.initState();
     listener = () {
       setState(() {
-        SystemChrome.setPreferredOrientations( [DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
+     
       });
     };
     
@@ -128,8 +128,7 @@ class VideoState extends State<VideoPlayerPage> {
 
 
   Widget widgetBoton() {
-    SystemChrome.setPreferredOrientations( []);
-    SystemChrome.setPreferredOrientations( [DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
+   
     if (playerController.value.isPlaying) {
       return Icon(Icons.pause);
     } else {

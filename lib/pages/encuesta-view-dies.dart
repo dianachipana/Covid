@@ -49,7 +49,7 @@ class EncuestaViewDiesPageState extends State<EncuestaVistaDiesPage> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(right: 20,left: 20),
-                              child: Text('¿Ha estado al cuidado d eun familiar o paciente positivo al COVID?',
+                              child: Text('¿Ha estado al cuidado de un familiar o paciente positivo al COVID?',
                                 style:
                                     TextStyle(fontSize: 18, color: Colors.black)),
                           ),

@@ -12,7 +12,7 @@ import '../../routing_constants.dart';
 class VideosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-       SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
+       SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp,DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
     return BlocProvider<TransactionBloc>(
         create: (_) => TransactionBloc(transactionLogic: TransactionSimple()),
@@ -73,6 +73,18 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
         return Container();
       }
     }));
+  }
+
+
+  @override
+  dispose(){
+    // SystemChrome.setPreferredOrientations([
+    //   DeviceOrientation.landscapeRight,
+    //   DeviceOrientation.landscapeLeft
+    //   // DeviceOrientation.portraitUp,
+    //   // DeviceOrientation.portraitDown,
+    // ]);
+    super.dispose();
   }
 
   Widget _crearItem(Transaction video, double screenWidth) {
@@ -141,7 +153,10 @@ class _TransactionListViewState extends State<TransactionListViewSF> {
                         'imagen': video.imagen,
                         'description' : video.description
                       };
-                
+                       SystemChrome.setPreferredOrientations([
+                          DeviceOrientation.landscapeRight,
+                          DeviceOrientation.landscapeLeft
+                        ]);
                       Navigator.pushNamed(
                         context,
                         VideoPlayerViewRoute,

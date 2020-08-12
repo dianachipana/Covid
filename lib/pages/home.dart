@@ -1,12 +1,8 @@
-import 'package:covid/pages/components/textfield_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../routing_constants.dart';
-// Copyright 2019 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
 
 class HomePage extends StatefulWidget {
   final String title = 'Registration';

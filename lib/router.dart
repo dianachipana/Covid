@@ -2,6 +2,7 @@ import 'package:covid/pages/autoevaluacion-view.dart';
 import 'package:covid/pages/autoevaluacion.dart';
 import 'package:covid/pages/components/video_player.dart';
 import 'package:covid/pages/components/videos.dart';
+import 'package:covid/pages/detail/detalle-componente.dart';
 import 'package:covid/pages/encuesta-medicamentos-dos.dart';
 import 'package:covid/pages/encuesta-view-cinco.dart';
 import 'package:covid/pages/encuesta-view-cuatro.dart';
@@ -66,6 +67,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case VideosViewRoute:
       return MaterialPageRoute(builder: (context) => VideosPage());
+
+    case DetailViewRoute:
+      return MaterialPageRoute(
+          builder: (context) => DetailPage(obj: settings.arguments));
 
     case EncuestaVistaDosViewRoute:
       return MaterialPageRoute(
@@ -132,38 +137,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case EncuestaVistaUnoViewRoute:
       return MaterialPageRoute(builder: (context) => EncuestaVistaUnoPage());
 
-    case EncuestaVistaDosViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaDosPage());
-
-    case EncuestaVistaTresViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaTresPage());
-
-    case EncuestaVistaCuatroViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaCuatroPage());
-
-    case EncuestaVistaCincoViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaCincoPage());
-
-    case EncuestaVistaSeisViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaSeisPage());
-
-    case EncuestaVistaSieteViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaSietePage());
-
-    case EncuestaVistaOchoViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaOchoPage());
-
-    case EncuestaVistaNueveViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaNuevePage());
-
-    case EncuestaVistaDiesViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaDiesPage());
-
     case ResultadosNegativoViewRoute:
       return MaterialPageRoute(builder: (context) => ResultadosNegativoPage());
-
-    case ResultadosPositivoViewRoute:
-      return MaterialPageRoute(builder: (context) => ResultadosPositivoPage());
 
     case EncuestaMedicamentosCeroViewRoute:
       return MaterialPageRoute(builder: (context) => RecetaFaseCeroPage());

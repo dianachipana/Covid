@@ -20,6 +20,7 @@ const String EncuestaVistaTresViewRoute = 'encuesta-vista-tres';
 const String EncuestaVistaCuatroViewRoute = 'encuesta-vista-cuatro';
 const String EncuestaVistaCincoViewRoute = 'encuesta-vista-cinco';
 const String EncuestaVistaSeisViewRoute = 'encuesta-vista-seis';
+const String DetailViewRoute = 'detail-vista';
 const String EncuestaVistaSieteViewRoute = 'encuesta-vista-siete';
 const String EncuestaVistaOchoViewRoute = 'encuesta-vista-ocho';
 const String EncuestaVistaNueveViewRoute = 'encuesta-vista-nueve';

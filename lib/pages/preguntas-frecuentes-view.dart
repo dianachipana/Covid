@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../routing_constants.dart';
 
 class PreguntasFrecuentesVista extends StatelessWidget {
   @override
@@ -44,8 +45,7 @@ class PreguntasFrecuentesVistaState extends State<PreguntasListViewSF> {
 
   Widget _lista(BuildContext context, double width) {
     if (questionsFilter.length < 1) {
-      BlocProvider.of<QuestionBloc>(context)
-          .add(DoGetQuestions());
+      BlocProvider.of<QuestionBloc>(context).add(DoGetQuestions());
     }
 
     return BlocListener<QuestionBloc, QuestionState>(
@@ -55,8 +55,8 @@ class PreguntasFrecuentesVistaState extends State<PreguntasListViewSF> {
         questionsFilter = state.questions;
       }
       if (state is ErrorQuestion) {}
-    }, child: BlocBuilder<QuestionBloc, QuestionState>(
-            builder: (context, state) {
+    }, child:
+            BlocBuilder<QuestionBloc, QuestionState>(builder: (context, state) {
       if (questions.length > 0) {
         return Expanded(
             child: ListView.builder(
@@ -72,38 +72,52 @@ class PreguntasFrecuentesVistaState extends State<PreguntasListViewSF> {
   Widget _crearItem(Question question, double screenWidth) {
     return Stack(
       children: <Widget>[
-        Container(
-          margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-          height: 140,
-          width: double.infinity,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20.0)),
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 10, 10, 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      width: screenWidth * 0.7,
-                      child: Text(
-                        question.pregunta,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
+        GestureDetector(
+          onTap: () {
+            print("axwel rouse");
+            Map obj = {
+              'pregunta': question.pregunta,
+              'respuesta': question.respuesta
+            };
+            Navigator.pushNamed(
+              context,
+              DetailViewRoute,
+              arguments: obj,
+            );
+          },
+          child: Container(
+            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+            height: 140,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(20.0)),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(20, 10, 10, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        width: screenWidth * 0.7,
+                        child: Text(
+                          question.pregunta,
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          maxLines: 2,
                         ),
-                        maxLines: 2,
                       ),
-                    ),
-                  ],
-                ),
-                Text(question.respuestaResume),
-                SizedBox(height: 30),
-              ],
+                    ],
+                  ),
+                  Text(question.respuestaResume),
+                  SizedBox(height: 30),
+                ],
+              ),
             ),
           ),
         ),
@@ -188,7 +202,8 @@ class PreguntasFrecuentesVistaState extends State<PreguntasListViewSF> {
                           text = text.toLowerCase();
                           setState(() {
                             questions = questionsFilter.where((question) {
-                              var questionTitle = question.pregunta.toLowerCase();
+                              var questionTitle =
+                                  question.pregunta.toLowerCase();
                               return questionTitle.contains(text);
                             }).toList();
                           });
@@ -210,6 +225,4 @@ class PreguntasFrecuentesVistaState extends State<PreguntasListViewSF> {
       ],
     );
   }
-
-
 }

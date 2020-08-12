@@ -2,9 +2,10 @@ import 'package:covid/pages/autoevaluacion-view.dart';
 import 'package:covid/pages/autoevaluacion.dart';
 import 'package:covid/pages/components/video_player.dart';
 import 'package:covid/pages/components/videos.dart';
+import 'package:covid/pages/encuesta-medicamentos-dos.dart';
 import 'package:covid/pages/encuesta-view-cinco.dart';
 import 'package:covid/pages/encuesta-view-cuatro.dart';
-import 'package:covid/pages/encuesta-view-dies.dart';
+import 'package:covid/pages/encuesta-view-diez.dart';
 import 'package:covid/pages/encuesta-view-dos.dart';
 import 'package:covid/pages/encuesta-view-nueve.dart';
 import 'package:covid/pages/encuesta-view-ocho.dart';
@@ -15,14 +16,19 @@ import 'package:covid/pages/encuesta-view-uno.dart';
 import 'package:covid/pages/home.dart';
 import 'package:covid/pages/loading.dart';
 import 'package:covid/pages/login.dart';
+import 'package:covid/pages/encuesta-medicamentos-uno.dart';
+import 'package:covid/pages/medicamentos-view.dart';
 import 'package:covid/pages/preguntas-frecuentes-view.dart';
 import 'package:covid/pages/preguntas-frecuentes.dart';
 import 'package:covid/pages/protegete-al-salir-view.dart';
 import 'package:covid/pages/protegete-al-salir.dart';
 import 'package:covid/pages/protegete-en-casa-view.dart';
 import 'package:covid/pages/protegete-en-casa.dart';
-import 'package:covid/pages/receta-view.dart';
+import 'package:covid/pages/receta-fase-cero.dart';
+import 'package:covid/pages/receta-fase-dos.dart';
+import 'package:covid/pages/receta-fase-uno.dart';
 import 'package:covid/pages/register.dart';
+import 'package:covid/pages/resultados-negativo.dart';
 import 'package:covid/pages/resultados-positivo.dart';
 import 'package:covid/pages/sintomas-view.dart';
 import 'package:covid/pages/sintomas.dart';
@@ -59,35 +65,48 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ProtegeteEnCasaVista());
 
     case VideosViewRoute:
-      
       return MaterialPageRoute(builder: (context) => VideosPage());
 
-  
     case EncuestaVistaDosViewRoute:
-      return MaterialPageRoute( builder: (context) => EncuestaVistaDosPage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaDosPage(obj: settings.arguments));
 
     case EncuestaVistaTresViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaTresPage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaTresPage(obj: settings.arguments));
 
     case EncuestaVistaCuatroViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaCuatroPage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) =>
+              EncuestaVistaCuatroPage(obj: settings.arguments));
 
     case EncuestaVistaCincoViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaCincoPage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) =>
+              EncuestaVistaCincoPage(obj: settings.arguments));
 
     case EncuestaVistaSeisViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaSeisPage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaSeisPage(obj: settings.arguments));
     case EncuestaVistaSieteViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaSietePage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) =>
+              EncuestaVistaSietePage(obj: settings.arguments));
     case EncuestaVistaOchoViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaOchoPage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaOchoPage(obj: settings.arguments));
     case EncuestaVistaNueveViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaNuevePage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) =>
+              EncuestaVistaNuevePage(obj: settings.arguments));
     case EncuestaVistaDiesViewRoute:
-      return MaterialPageRoute(builder: (context) => EncuestaVistaDiesPage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => EncuestaVistaDiesPage(obj: settings.arguments));
 
     case ResultadosPositivoViewRoute:
-      return MaterialPageRoute(builder: (context) => ResultadosPositivoPage(obj: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) =>
+              ResultadosPositivoPage(obj: settings.arguments));
     case VideoPlayerViewRoute:
       return MaterialPageRoute(
           builder: (context) => VideoPlayerPage(obj: settings.arguments));
@@ -113,10 +132,58 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case EncuestaVistaUnoViewRoute:
       return MaterialPageRoute(builder: (context) => EncuestaVistaUnoPage());
 
-    
+    case EncuestaVistaDosViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaDosPage());
 
-    case RecetaViewRoute:
-      return MaterialPageRoute(builder: (context) => RecetaPage());
+    case EncuestaVistaTresViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaTresPage());
+
+    case EncuestaVistaCuatroViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaCuatroPage());
+
+    case EncuestaVistaCincoViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaCincoPage());
+
+    case EncuestaVistaSeisViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaSeisPage());
+
+    case EncuestaVistaSieteViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaSietePage());
+
+    case EncuestaVistaOchoViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaOchoPage());
+
+    case EncuestaVistaNueveViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaNuevePage());
+
+    case EncuestaVistaDiesViewRoute:
+      return MaterialPageRoute(builder: (context) => EncuestaVistaDiesPage());
+
+    case ResultadosNegativoViewRoute:
+      return MaterialPageRoute(builder: (context) => ResultadosNegativoPage());
+
+    case ResultadosPositivoViewRoute:
+      return MaterialPageRoute(builder: (context) => ResultadosPositivoPage());
+
+    case EncuestaMedicamentosCeroViewRoute:
+      return MaterialPageRoute(builder: (context) => RecetaFaseCeroPage());
+
+    case RecetaFaseUnoViewRoute:
+      return MaterialPageRoute(builder: (context) => RecetaFaseUnoPage());
+
+    case RecetaFaseDosViewRoute:
+      return MaterialPageRoute(builder: (context) => RecetaFaseDosPage());
+
+    case EncuestaMedicamentosUnoViewRoute:
+      return MaterialPageRoute(
+          builder: (context) => EncuestaMedicamentosUnoPage());
+
+    case EncuestaMedicamentosDosViewRoute:
+      return MaterialPageRoute(
+          builder: (context) => EncuestaMedicamentosDosPage());
+
+    case MedicamentosViewRoute:
+      return MaterialPageRoute(builder: (context) => MedicamentosPage());
 
     default:
       return MaterialPageRoute(builder: (context) => UndefinedView());

@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,10 +16,10 @@ class EncuestaViewCincoPageState extends State<EncuestaVistaCincoPage> {
   EncuestaViewCincoPageState({this.obj});
   @override
   Widget build(BuildContext context) {
-     final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-   return Scaffold(
+    return Scaffold(
         backgroundColor: Colors.deepPurpleAccent[400],
         body: SafeArea(
           child: SingleChildScrollView(
@@ -42,17 +41,17 @@ class EncuestaViewCincoPageState extends State<EncuestaVistaCincoPage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 5',
+                          Text('Pregunta 5 de 10',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(
                             height: 20.0,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(right: 20,left: 20),
-                              child: Text('¿Está experimentando fatiga?',
-                                style:
-                                    TextStyle(fontSize: 18, color: Colors.black)),
+                            padding: EdgeInsets.only(right: 20, left: 20),
+                            child: Text('¿Está experimentando fatiga?',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black)),
                           ),
                           Container(
                             height: 90,

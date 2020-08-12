@@ -1,25 +1,23 @@
-
 import 'package:covid/routing_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class EncuestaVistaNuevePage extends StatefulWidget {
   final Map obj;
   EncuestaVistaNuevePage({Key key, @required this.obj}) : super(key: key);
- @override
-  State<StatefulWidget> createState() => EncuestaViewNuevePageState(obj:  obj);
+  @override
+  State<StatefulWidget> createState() => EncuestaViewNuevePageState(obj: obj);
 }
 
 class EncuestaViewNuevePageState extends State<EncuestaVistaNuevePage> {
   final Map obj;
-  EncuestaViewNuevePageState({this.obj});  
+  EncuestaViewNuevePageState({this.obj});
   @override
   Widget build(BuildContext context) {
-     final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-   return Scaffold(
+    return Scaffold(
         backgroundColor: Colors.deepPurpleAccent[400],
         body: SafeArea(
           child: SingleChildScrollView(
@@ -41,23 +39,24 @@ class EncuestaViewNuevePageState extends State<EncuestaVistaNuevePage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 9',
+                          Text('Pregunta 9 de 10',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(
                             height: 20.0,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(right: 10,left: 20),
-                              child: Text('¿Ha estado en contacto directo con un paciente positivo al COVID?',
-                                style:
-                                    TextStyle(fontSize: 18, color: Colors.black)),
+                            padding: EdgeInsets.only(right: 10, left: 20),
+                            child: Text(
+                                '¿Ha estado en contacto directo con un paciente positivo al COVID?',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black)),
                           ),
                           Container(
                             height: 50,
                             width: 80,
                             /*  padding: EdgeInsets.only(right:30,left: 45), */
-                           /*  child: Image.asset('assets/images/assets/images/paciente.jpg'), */
+                            /*  child: Image.asset('assets/images/assets/images/paciente.jpg'), */
                           ),
                           SizedBox(height: 10),
                         ],
@@ -71,10 +70,10 @@ class EncuestaViewNuevePageState extends State<EncuestaVistaNuevePage> {
                   child: Row(
                     children: <Widget>[
                       MaterialButton(
-                           onPressed: () {
+                          onPressed: () {
                             Map obj2 = {
-                            'punto':  (int.parse(this.obj['punto']) + 3).toString(),
-                            
+                              'punto':
+                                  (int.parse(this.obj['punto']) + 3).toString(),
                             };
                             Navigator.pushNamed(
                               context,
@@ -96,8 +95,8 @@ class EncuestaViewNuevePageState extends State<EncuestaVistaNuevePage> {
                       MaterialButton(
                           onPressed: () {
                             Map obj2 = {
-                            'punto':  (int.parse(this.obj['punto']) + 0).toString(),
-                            
+                              'punto':
+                                  (int.parse(this.obj['punto']) + 0).toString(),
                             };
                             Navigator.pushNamed(
                               context,

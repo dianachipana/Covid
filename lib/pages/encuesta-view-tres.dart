@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../routing_constants.dart';
-import 'encuesta-view-cuatro.dart';
 
 class EncuestaVistaTresPage extends StatefulWidget {
   final Map obj;
@@ -16,7 +14,7 @@ class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
   EncuestaViewTresPageState({this.obj});
   @override
   Widget build(BuildContext context) {
- final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -41,7 +39,7 @@ class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 3',
+                          Text('Pregunta 3 de 10',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(
@@ -50,12 +48,12 @@ class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
                           Text('¿Tienes dolor de garganta?',
                               style:
                                   TextStyle(fontSize: 18, color: Colors.black)),
-                                  Container(
-                                    height: 80,
-                                    width: 80,
-                          /*  padding: EdgeInsets.only(right:30,left: 45), */
+                          Container(
+                            height: 80,
+                            width: 80,
+                            /*  padding: EdgeInsets.only(right:30,left: 45), */
                             child: Image.asset('assets/images/dolor.jpg'),
-                        ),
+                          ),
                           SizedBox(height: 10),
                         ],
                       ),
@@ -70,8 +68,8 @@ class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
                       MaterialButton(
                           onPressed: () {
                             Map obj2 = {
-                            'punto':  (int.parse(this.obj['punto']) + 1).toString(),
-                            
+                              'punto':
+                                  (int.parse(this.obj['punto']) + 1).toString(),
                             };
                             Navigator.pushNamed(
                               context,
@@ -89,12 +87,12 @@ class EncuestaViewTresPageState extends State<EncuestaVistaTresPage> {
                           child: Text(
                             'Si',
                           )),
-                          SizedBox(width: 30),
+                      SizedBox(width: 30),
                       MaterialButton(
                           onPressed: () {
                             Map obj2 = {
-                            'punto':  (int.parse(this.obj['punto']) + 0).toString(),
-                            
+                              'punto':
+                                  (int.parse(this.obj['punto']) + 0).toString(),
                             };
                             Navigator.pushNamed(
                               context,

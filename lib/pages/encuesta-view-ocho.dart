@@ -16,10 +16,10 @@ class EncuestaViewOchoPageState extends State<EncuestaVistaOchoPage> {
   EncuestaViewOchoPageState({this.obj});
   @override
   Widget build(BuildContext context) {
-     final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-   return Scaffold(
+    return Scaffold(
         backgroundColor: Colors.deepPurpleAccent[400],
         body: SafeArea(
           child: SingleChildScrollView(
@@ -41,17 +41,18 @@ class EncuestaViewOchoPageState extends State<EncuestaVistaOchoPage> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text('Pregunta 8',
+                          Text('Pregunta 8 de 10',
                               style: TextStyle(
                                   fontSize: 16, color: Colors.purple[700])),
                           SizedBox(
                             height: 20.0,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(right: 20,left: 20),
-                              child: Text('¿Ha salido de su hogar, sin hacer uso de la mascarilla?',
-                                style:
-                                    TextStyle(fontSize: 18, color: Colors.black)),
+                            padding: EdgeInsets.only(right: 20, left: 20),
+                            child: Text(
+                                '¿Ha salido de su hogar, sin hacer uso de la mascarilla?',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.black)),
                           ),
                           Container(
                             height: 90,

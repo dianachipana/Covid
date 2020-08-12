@@ -46,18 +46,10 @@ class EncuestaViewDiesPageState extends State<EncuestaVistaDiesPage> {
                             height: 20.0,
                           ),
                           Padding(
-<<<<<<< HEAD:lib/pages/encuesta-view-dies.dart
                             padding: EdgeInsets.only(right: 20,left: 20),
                               child: Text('¿Ha estado al cuidado de un familiar o paciente positivo al COVID?',
                                 style:
                                     TextStyle(fontSize: 18, color: Colors.black)),
-=======
-                            padding: EdgeInsets.only(right: 20, left: 20),
-                            child: Text(
-                                '¿Ha estado al cuidado d eun familiar o paciente positivo al COVID?',
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.black)),
->>>>>>> modificacion_nikoll:lib/pages/encuesta-view-diez.dart
                           ),
                           Container(
                             height: 80,

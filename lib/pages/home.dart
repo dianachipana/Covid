@@ -355,7 +355,7 @@ class HomePageState extends State<HomePage> {
                   height: 12,
                 ),
                 Text(
-                    'Averigua qué medicamentos te podrían ayudar combatir el COVID-19.',
+                    'Averigua qué medicamentos te podrían ayudar a combatir el COVID-19.',
                     textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 14, color: Colors.black)),
               ]),

@@ -16,6 +16,18 @@ class VideoState extends State<VideoPlayerPage> {
   Map obj;
   VideoState({this.obj});
 
+
+@override
+  dispose(){
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown
+    ]);
+    super.dispose();
+  }
+
   @override
   
   Widget build(BuildContext context) {

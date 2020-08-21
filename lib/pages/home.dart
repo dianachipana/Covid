@@ -14,8 +14,8 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
+    // SystemChrome.setPreferredOrientations(
+    //     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(

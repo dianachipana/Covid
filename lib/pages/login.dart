@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget  {
 
    @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
+    // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
     return BlocProvider(
       create: (_)=>PreloginBloc(authenticationLogic: AuthenticationSimple()),
       child: PreloginViewFS()

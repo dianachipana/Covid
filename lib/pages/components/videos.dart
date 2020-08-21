@@ -12,7 +12,7 @@ import '../../routing_constants.dart';
 class VideosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-       SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp,DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
+      //  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp,DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
 
     return BlocProvider<TransactionBloc>(
         create: (_) => TransactionBloc(transactionLogic: TransactionSimple()),
